@@ -1,0 +1,23 @@
+.back-2parte {
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: auto;
+    text-align: center;
+    height: 100%;
+    padding: 15px;
+}
+
+.back-2parte p {
+    font-size: 100px;
+    font-weight: 500;
+    font-family: "Medula One", cursive;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin: 15px 0px;
+    letter-spacing: 5px;
+}
