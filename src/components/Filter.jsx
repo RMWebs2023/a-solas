@@ -3,7 +3,7 @@ import {
   sinSubcategory,
   subLubricantes,
   subDisfraces,
-  subLenceria,
+  subLenceria, 
 } from "../data/functions";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
