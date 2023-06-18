@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
-//import Searchbar from "../components/Searchbar";
 import Card from "../components/Card";
-import Filter from"../components/Filter"
-import Personas from "../components/personas";
+import Filter from "../components/Filter";
+import Personas from "../components/Personas";
 import data from "../data/data";
 import "../style/index.css";
 import "../style/header.css";
-import { Navbar } from "react-bootstrap";
 
 const Home = () => {
-  // se crea un estado con todos los productos y que sea dinámico
-  const [products, setProducts] = useState(data);
+  const itemsPerPage = 9;
   const [name, setName] = useState("");
+  const [dataPage, setDataPage] = useState(data);
+  const [products, setProducts] = useState([...data].splice(0, itemsPerPage));
+  const [currentPage, setCurrentPage] = useState(0);
 
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
     if (category === "Todas") {
-      setProducts(data);
+      setProducts([...data].splice(0, itemsPerPage));
       return;
     }
 
@@ -25,7 +25,7 @@ const Home = () => {
       (product) => product.category === category
     );
 
-    setProducts(filterProduct);
+    setProducts([...filterProduct].splice(0, itemsPerPage));
   };
 
   // función que filtra los productos dependiendo su subcategoría
@@ -50,19 +50,50 @@ const Home = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const nombre = name
-    const map = data.filter(product=>product.category === nombre)
-    setProducts(map)
+    const text = name;
+    const search = data.filter(
+      (product) =>
+        product.category.toLowerCase().includes(text) ||
+        product.name.toLowerCase().includes(text)
+    );
+    setProducts(search);
+  };
+
+  // botón next del paginado
+  const nextHandler = () => {
+    const allElements = dataPage.length;
+    const nextPage = currentPage + 1;
+    const firstIndex = nextPage * itemsPerPage;
+    if (firstIndex > allElements) return;
+    setProducts([...dataPage].splice(firstIndex, itemsPerPage));
+    setCurrentPage(nextPage);
+  };
+
+  // botón prev del paginado
+  const prevHandler = () => {
+    const prevPage = currentPage - 1;
+    if (prevPage < 0) return;
+    const firstIndex = prevPage * itemsPerPage;
+    setProducts([...dataPage].splice(firstIndex, itemsPerPage));
+    setCurrentPage(prevPage);
   };
 
   return (
     <>
       <div className="Navbar_filter">
-        <Filter name={name} handleChange={handleChange} handleSubmit={handleSubmit} filterCategory={filterCategory} filterSubcategory={filterSubcategory}/>
+        <Filter
+          name={name}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          filterCategory={filterCategory}
+          filterSubcategory={filterSubcategory}
+        />
       </div>
       <Header />
       <Personas />
-      <Card products={products} />
+      <Card products={products} />
+      <button onClick={prevHandler}>Prev</button>
+      <button onClick={nextHandler}>Next</button>
     </>
   );
 };

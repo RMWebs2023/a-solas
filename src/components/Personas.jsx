@@ -7,8 +7,8 @@ const Personas = () => {
         <main>
             <div className="back-2parte">
                 <img src={personas} alt="" className="img"/>
-                <p className="slogan">Disfruta y vive!</p>
-                </div>
+                <p>Disfruta y vive!</p>
+            </div>
         </main>
     );
 };

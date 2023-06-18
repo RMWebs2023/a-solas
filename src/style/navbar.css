@@ -1,0 +1,32 @@
+.offcanvas {
+    background-color: rgb(10, 10, 10) !important;
+    border-color: #d0006fd7 !important;
+}
+
+.offcanvas-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-color: #d0006fd7;
+}
+
+.offcanvas-title {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    font-family: "Jost", sans-serif;
+    letter-spacing: 2px;
+}
+
+.offcanvas-body {
+    color: white;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.d-flex {
+    align-items: baseline !important;
+}
+
+.boton {
+    border-color: #d0006fd7 !important;
+}
