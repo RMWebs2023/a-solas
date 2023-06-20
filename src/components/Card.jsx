@@ -20,7 +20,6 @@ const Card = ({ products }) => {
           </div>
         ))}
       </div>
-
     </>
   );
 };

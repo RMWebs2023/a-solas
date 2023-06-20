@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   sinSubcategory,
   subLubricantes,
@@ -13,7 +13,6 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../style/index.css";
 import "../style/navbar.css";
 
 const Filter = ({
@@ -33,8 +32,7 @@ const Filter = ({
               className="offcanvas"
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-              restoreFocus={false}
+              placement="start"
             >
               <Offcanvas.Header closeButton className="offcanvas-header">
                 <Offcanvas.Title
@@ -48,13 +46,13 @@ const Filter = ({
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   {/* Todos los botones de categorías menos los que tiene subcategorías */}
                   {sinSubcategory.map((category, id) => (
-                      <Nav.Link
+                    <Nav.Link
                       key={id}
-                        href="#producto"
-                        onClick={() => filterCategory(category)}
-                      >
-                        {category}
-                      </Nav.Link>
+                      href="#producto"
+                      onClick={() => filterCategory(category)}
+                    >
+                      {category}
+                    </Nav.Link>
                   ))}
 
                   <NavDropdown
@@ -63,12 +61,9 @@ const Filter = ({
                   >
                     {subLubricantes.map((subcategory, id) => (
                       <Dropdown.Item
-                      key={id}
+                        key={id}
                         href="#producto"
-                        onClick={() => {
-                          filterSubcategory(subcategory);
-                          handleClose();
-                        }}
+                        onClick={() => filterSubcategory(subcategory)}
                       >
                         {subcategory}
                       </Dropdown.Item>
@@ -81,7 +76,7 @@ const Filter = ({
                   >
                     {subDisfraces.map((subcategory, id) => (
                       <Dropdown.Item
-                      key={id}
+                        key={id}
                         href="#producto"
                         onClick={() => filterSubcategory(subcategory)}
                       >
@@ -96,12 +91,9 @@ const Filter = ({
                   >
                     {subLenceria.map((subcategory, id) => (
                       <Dropdown.Item
-                      key={id}
+                        key={id}
                         href="#producto"
-                        onClick={() => {
-                          filterSubcategory(subcategory);
-                          handleClose();
-                        }}
+                        onClick={() => filterSubcategory(subcategory)}
                       >
                         {subcategory}
                       </Dropdown.Item>

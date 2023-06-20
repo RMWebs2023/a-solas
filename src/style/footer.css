@@ -1,0 +1,158 @@
+footer {
+  background-color: #d0006f9f;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 90% 10%;
+  place-items: center;
+}
+
+.asolas {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.title_footer {
+  font-family: "Medula One", cursive;
+  font-weight: 400;
+  font-size: 100px;
+  text-align: center;
+}
+
+.subtitle_footer {
+  font-family: "Jost", sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  text-align: center;
+  position: relative;
+  top: -25px;
+}
+
+.wsp {
+  width: 20px;
+  height: auto;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.url_wsp {
+  text-decoration: none;
+  color: white;
+}
+
+.redes {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: auto;
+  place-items: center;
+}
+
+.insta {
+  width: 30px;
+  height: auto;
+  border-radius: 50px;
+}
+
+.tiktok {
+  width: 30px;
+  height: auto;
+  border-radius: 50px;
+}
+
+.wsp_2 {
+  width: 30px;
+  height: auto;
+  border-radius: 50px;
+}
+
+.RMWebs {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 30px;
+}
+
+/* Responsive para tablet y celular */
+
+@media only screen and (max-width: 768px) {
+  footer {
+    background-color: #d0006f9f;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90% 10%;
+    place-items: center;
+  }
+
+  .asolas {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25% 50% 25%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .title_footer {
+    font-family: "Medula One", cursive;
+    font-weight: 400;
+    font-size: 75px;
+    text-align: center;
+  }
+
+  .subtitle_footer {
+    font-family: "Jost", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    position: relative;
+    top: -25px;
+  }
+
+  span {
+    display: none;
+  }
+
+  .logo_footer {
+    display: none;
+  }
+
+  .redes {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: auto;
+    place-items: center;
+    padding-bottom: 20px;
+  }
+
+  .insta {
+    width: 30px;
+    height: auto;
+    border-radius: 50px;
+  }
+
+  .tiktok {
+    width: 30px;
+    height: auto;
+    border-radius: 50px;
+  }
+
+  .wsp_2 {
+    width: 30px;
+    height: auto;
+    border-radius: 50px;
+  }
+
+  .RMWebs {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 30px;
+  }
+}

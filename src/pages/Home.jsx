@@ -4,8 +4,9 @@ import Card from "../components/Card";
 import Filter from "../components/Filter";
 import Personas from "../components/Personas";
 import data from "../data/data";
-import "../style/index.css";
 import "../style/header.css";
+import "../style/home.css";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const itemsPerPage = 9;
@@ -79,7 +80,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <body>
       <div className="Navbar_filter">
         <Filter
           name={name}
@@ -92,9 +93,16 @@ const Home = () => {
       <Header />
       <Personas />
       <Card products={products} />
-      <button onClick={prevHandler}>Prev</button>
-      <button onClick={nextHandler}>Next</button>
-    </>
+      <div className="paginado">
+        <button className="paginado_boton" onClick={prevHandler}>
+          Anterior
+        </button>
+        <button className="paginado_boton" onClick={nextHandler}>
+          Siguiente
+        </button>
+      </div>
+      <Footer />
+    </body>
   );
 };
 

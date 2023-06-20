@@ -2,7 +2,7 @@ import "./App.css";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

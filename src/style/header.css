@@ -1,177 +1,254 @@
+:root {
+  --primary-color: rgba(42, 42, 42, 0.203);
+  --overlay-color: rgba(208, 0, 110, 0.818);
+  --menu-speed: 0.75s;
+}
+
 .Navbar_filter {
-    height: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 99;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .mb-3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-    background-color: #d0006f9f;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-color: #d0006f9f;
 }
 
 .showcase {
-    position: relative;
-    top: -72px;
-    width: 100%;
-    height: 100vh;
+  position: relative;
+  top: -72px;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-color: #d0006e;
+  color: #fff;
 }
 
 .showcase .showcase-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .showcase .showcase-inner img {
-    align-self: center;
+  align-self: center;
 }
 
 .logo {
-    width: 200px;
-    height: auto;
-    will-change: filter;
-    transition: filter 300ms;
+  width: 200px;
+  height: auto;
+  will-change: filter;
+  transition: filter 300ms;
 }
 .logo:hover {
-    filter: drop-shadow(0 0 2em #000000);
+  filter: drop-shadow(0 0 2em #000000);
 }
 .logo.react:hover {
-    filter: drop-shadow(0 0 2em #200011);
+  filter: drop-shadow(0 0 2em #200011);
 }
 
 @keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
-    }
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
+
+.title {
+  font-family: "Medula One", cursive;
+  font-weight: 400;
+  font-size: 200px;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: "Jost", sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  text-align: center;
+  position: relative;
+  top: -25px;
+}
+
+.showcase .slogan {
+  font-size: 35px;
+  font-weight: 500;
+  font-family: "Jost", sans-serif;
+  text-align: center;
+}
+
+/* Responsive para tablet */
 
 @media only screen and (max-width: 768px) {
-    .Navbar_filter {
-        height: 100%;
-        position: sticky;
-        top: 0;
-        z-index: 99;
-    }
-    
-    .mb-3 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-        background-color: #d0006f9f;
-    }
-    
-    .showcase {
-        position: relative;
-        top: -72px;
-        width: 100%;
-        height: 100vh;
-    }
-    
-    .showcase .showcase-inner {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-    }
-    
-    .showcase .showcase-inner img {
-        align-self: center;
-    }
-    
-    .logo {
-        width: 200px;
-        height: auto;
-        will-change: filter;
-        transition: filter 300ms;
-    }
-    .logo:hover {
-        filter: drop-shadow(0 0 2em #000000);
-    }
-    .logo.react:hover {
-        filter: drop-shadow(0 0 2em #200011);
-    }
-    
-    @keyframes logo-spin {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-    
-    @media (prefers-reduced-motion: no-preference) {
-        a:nth-of-type(2) .logo {
-            animation: logo-spin infinite 20s linear;
-        }
-    }
-}
-
-@media only screen and (max-width: 414px) {
-    .Navbar_filter {
+  .Navbar_filter {
     height: 100%;
     position: sticky;
     top: 0;
     z-index: 99;
-}
+  }
 
-.mb-3 {
+  .mb-3 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     background-color: #d0006f9f;
-}
+  }
 
-.showcase {
+  .showcase {
     position: relative;
     top: -72px;
     width: 100%;
     height: 100vh;
-}
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-color: #d0006e;
+    color: #fff;
+  }
 
-.showcase .showcase-inner {
+  .showcase .showcase-inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
-}
+  }
 
-.showcase .showcase-inner img {
+  .showcase .showcase-inner img {
     align-self: center;
-}
+  }
 
-.logo {
+  .logo {
     width: 200px;
     height: auto;
     will-change: filter;
     transition: filter 300ms;
-}
-.logo:hover {
+  }
+  .logo:hover {
     filter: drop-shadow(0 0 2em #000000);
-}
-.logo.react:hover {
+  }
+  .logo.react:hover {
     filter: drop-shadow(0 0 2em #200011);
-}
+  }
 
-@keyframes logo-spin {
+  @keyframes logo-spin {
     from {
-        transform: rotate(0deg);
+      transform: rotate(0deg);
     }
     to {
-        transform: rotate(360deg);
+      transform: rotate(360deg);
     }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+
+  .title {
+    font-family: "Medula One", cursive;
+    font-weight: 400;
+    font-size: 150px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-family: "Jost", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    position: relative;
+    top: -15px;
+  }
+
+  .showcase .slogan {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: "Jost", sans-serif;
+    text-align: center;
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
+/* Resposive para celular */
+
+@media only screen and (max-width: 414px) {
+  .Navbar_filter {
+    height: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+
+  .mb-3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-color: #d0006f9f;
+  }
+
+  .showcase {
+    position: relative;
+    top: -72px;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-color: #d0006e;
+    color: #fff;
+  }
+
+  .showcase:before {
+    content: "";
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+    background-color: #d0006e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .showcase .showcase-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .showcase .showcase-inner img {
+    align-self: center;
+  }
+
+  .logo {
+    width: 200px;
+    height: auto;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #000000);
+  }
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #200011);
+  }
+
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
     }
-}
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
 }
