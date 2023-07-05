@@ -22,6 +22,7 @@ const Filter = ({
   filterCategory,
   filterSubcategory,
 }) => {
+  
   return (
     <>
       {[false].map((expand) => (
@@ -44,6 +45,7 @@ const Filter = ({
               </Offcanvas.Header>
               <Offcanvas.Body className="offcanvas-body">
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+
                   {/* Todos los botones de categorías menos los que tiene subcategorías */}
                   {sinSubcategory.map((category, id) => (
                     <Nav.Link
@@ -55,6 +57,7 @@ const Filter = ({
                     </Nav.Link>
                   ))}
 
+                  {/* Botones para filtrar por subcategorías */}
                   <NavDropdown
                     title="Lubricantes"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -100,6 +103,8 @@ const Filter = ({
                     ))}
                   </NavDropdown>
                 </Nav>
+
+                {/* Barra de búsqueda */}
                 <Form className="d-flex">
                   <Form.Control
                     type="search"

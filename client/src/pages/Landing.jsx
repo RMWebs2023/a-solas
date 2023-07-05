@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../redux/action";
 import { Link } from "react-router-dom";
 import logo_blanco from "../imagenes/logo_blanco.png";
 import "../style/landing.css";
 
 const Landing = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
   return (
     <div className="landing">
       <h1 className="title_landing">a solas</h1>

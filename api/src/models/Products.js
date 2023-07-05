@@ -24,6 +24,9 @@ const ProductsSchema = new Schema({
     type: String,
     required: true,
   },
+  quantity: {
+    type: Number,
+  },
 });
 
 module.exports = model("products", ProductsSchema);

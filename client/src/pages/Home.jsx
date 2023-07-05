@@ -1,20 +1,30 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Cart from "../components/Cart";
 import Filter from "../components/Filter";
 import Personas from "../components/Personas";
 import Footer from "../components/Footer";
-import data from "../data/data";
 import "../style/header.css";
 import "../style/home.css";
 
 const Home = () => {
+  // hook que llama productos de la bdd
+  const data = useSelector((state) => state.products);
+
+  // estados para filtrado y paginado
   const itemsPerPage = 9;
   const [name, setName] = useState("");
   const [dataPage, setDataPage] = useState(data);
   const [products, setProducts] = useState([...data].splice(0, itemsPerPage));
   const [currentPage, setCurrentPage] = useState(0);
+
+  // estados del carrito
+  const [allProducts, setAllProducts] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [countProducts, setCountProducts] = useState(0);
+  const [count, setCount] = useState(1);
 
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
@@ -81,7 +91,7 @@ const Home = () => {
   };
 
   return (
-    <body>
+    <>
       <div className="Navbar_filter">
         <Filter
           name={name}
@@ -90,10 +100,30 @@ const Home = () => {
           filterCategory={filterCategory}
           filterSubcategory={filterSubcategory}
         />
+        <Cart
+          allProducts={allProducts}
+          setAllProducts={setAllProducts}
+          total={total}
+          setTotal={setTotal}
+          countProducts={countProducts}
+          setCountProducts={setCountProducts}
+          count={count}
+          setCount={setCount}
+        />
       </div>
       <Header />
       <Personas />
-      <Card products={products} />
+      <Card
+        products={products}
+        allProducts={allProducts}
+        setAllProducts={setAllProducts}
+        total={total}
+        setTotal={setTotal}
+        countProducts={countProducts}
+        setCountProducts={setCountProducts}
+        count={count}
+        setCount={setCount}
+      />
       <div className="paginado">
         <button className="paginado_boton" onClick={prevHandler}>
           Anterior
@@ -103,9 +133,8 @@ const Home = () => {
           Siguiente
         </button>
       </div>
-      <Cart />
       <Footer />
-    </body>
+    </>
   );
 };
 

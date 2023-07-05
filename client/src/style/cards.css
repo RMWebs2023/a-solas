@@ -20,7 +20,7 @@
   filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 45% 15% 35% 5%;
+  grid-template-rows: 30% 15% 35% 10%;
 }
 
 .wrapper {
@@ -270,4 +270,11 @@
     font-family: "Jost", sans-serif;
     font-size: 20px;
   }
+}
+
+.boton {
+  font-family: "Jost", sans-serif;
+  color: white;
+  border: 2px #d0006f9f solid;
+  background-color: rgba(17, 25, 40, 0.25);
 }
