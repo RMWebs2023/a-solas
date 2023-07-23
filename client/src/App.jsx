@@ -1,6 +1,7 @@
 import "./App.css";
-import Landing from "./pages/Landing";
+import Admin from "./pages/Admin";
 import Home from "./pages/Home.jsx";
+import Landing from "./pages/Landing";
 import Pay from "./pages/Pay";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/pagos" element={<Pay />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );

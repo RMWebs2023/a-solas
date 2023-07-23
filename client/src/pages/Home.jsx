@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../redux/action";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Cart from "../components/Cart";
@@ -10,8 +11,13 @@ import "../style/header.css";
 import "../style/home.css";
 
 const Home = () => {
+  const dispatch = useDispatch();
   // hook que llama productos de la bdd
   const data = useSelector((state) => state.products);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
 
   // estados para filtrado y paginado
   const itemsPerPage = 9;

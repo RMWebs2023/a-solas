@@ -12,8 +12,20 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const product = products(req.body);
+  if (req.file) {
+    const { filename } = req.file;
+    product.setImgUrl(filename);
+  }
   product
     .save()
+    .then((data) => res.status(201).json(data))
+    .catch((error) => res.status(400).json({ message: error.message }));
+});
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  products
+    .findByIdAndUpdate(id, req.body)
     .then((data) => res.status(201).json(data))
     .catch((error) => res.status(400).json({ message: error.message }));
 });

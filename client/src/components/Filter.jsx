@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  sinSubcategory,
-  subLubricantes,
-  subDisfraces,
-  subLenceria,
-} from "../data/functions";
+import { useSelector } from "react-redux";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -22,7 +17,49 @@ const Filter = ({
   filterCategory,
   filterSubcategory,
 }) => {
-  
+  // hook que llama productos de la bdd
+  const data = useSelector((state) => state.products);
+
+  // se crea un nuevo array de las categorías de los productos
+  const allCategories = [
+    "Todas",
+    ...new Set(data.map((product) => product.category)),
+  ];
+
+  // variable que filtra las categorías que no tienen subcategorías
+  const sinSubcategory = allCategories.filter(
+    (category) =>
+      category !== "Lubricantes" &&
+      category !== "Disfraces" &&
+      category !== "Lenceria"
+  );
+
+  // división de subcategorías de lubricantes
+  const lubricantes = data.filter(
+    (product) => product.category === "Lubricantes"
+  );
+
+  const subLubricantes = [
+    "Todas",
+    ...new Set(lubricantes.map((lubricante) => lubricante.subcategory)),
+  ];
+
+  // división de subcategorías de disfraces
+  const disfraces = data.filter((product) => product.category === "Disfraces");
+
+  const subDisfraces = [
+    "Todas",
+    ...new Set(disfraces.map((disfraz) => disfraz.subcategory)),
+  ];
+
+  // división de subcategorías de lencería
+  const lenceria = data.filter((product) => product.category === "Lenceria");
+
+  const subLenceria = [
+    "Todas",
+    ...new Set(lenceria.map((lenc) => lenc.subcategory)),
+  ];
+
   return (
     <>
       {[false].map((expand) => (
@@ -45,7 +82,6 @@ const Filter = ({
               </Offcanvas.Header>
               <Offcanvas.Body className="offcanvas-body">
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-
                   {/* Todos los botones de categorías menos los que tiene subcategorías */}
                   {sinSubcategory.map((category, id) => (
                     <Nav.Link

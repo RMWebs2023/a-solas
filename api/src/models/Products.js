@@ -16,17 +16,24 @@ const ProductsSchema = new Schema({
   subcategory: {
     type: String,
   },
+  details: {
+    type: String,
+  },
   description: {
     type: String,
     required: true,
   },
   image: {
     type: String,
-    required: true,
+    // required: true,
   },
   quantity: {
     type: Number,
   },
 });
+
+ProductsSchema.methods.setImgUrl = function setImgUrl(filename) {
+  this.imgUrl = `localhost:3000/public/${filename}`;
+};
 
 module.exports = model("products", ProductsSchema);
