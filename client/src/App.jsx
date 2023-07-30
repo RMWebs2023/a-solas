@@ -1,5 +1,6 @@
 import "./App.css";
 import Admin from "./pages/Admin";
+import Detail from "./pages/Detail"
 import Home from "./pages/Home.jsx";
 import Landing from "./pages/Landing";
 import Pay from "./pages/Pay";
@@ -12,8 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/pagos" element={<Pay />} />
+        <Route path="/pagos/:id" element={<Pay />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/:id" element={<Detail />} />
       </Routes>
     </BrowserRouter>
   );

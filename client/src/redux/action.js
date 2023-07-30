@@ -43,3 +43,17 @@ export const deleteProducts = (id) => {
     }
   };
 };
+
+export const createPreference = async (products) => {
+  try {
+    const response = await axios.post("/create_preference", {
+      description: products.filter((item) => item.name),
+      price: products.filter((item) => item.price),
+      quantity: products.filter((item) => item.quantity),
+    });
+    console.log(response)
+    return response.data.id;
+  } catch (error) {
+    console.log(error);
+  }
+};

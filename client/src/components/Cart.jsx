@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Cart = ({
   allProducts,
@@ -14,6 +15,25 @@ const Cart = ({
   setCount,
 }) => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const createPreference = async () => {
+    try {
+      const response = await axios.post("/create_preference", { 
+        description: allProducts[0].name,
+        price: allProducts[0].price,
+        quantity: count
+    });
+      return response.data.id;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleBuy = async () => {
+    const id = await createPreference();
+    navigate(`/pagos/${id}`);
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -86,9 +106,12 @@ const Cart = ({
             )}
             <div>Total de productos: {countProducts}</div>
             <div>${total}</div>
-            <Link to="/pagos">
-              <button disabled={!allProducts.length > 0}>Ir a pagar</button>
-            </Link>
+            <button
+              onClick={() => handleBuy()}
+              disabled={!allProducts.length > 0}
+            >
+              Ir a pagar
+            </button>
           </div>
         </Offcanvas.Body>
       </Offcanvas>

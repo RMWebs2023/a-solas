@@ -129,7 +129,7 @@ const Home = () => {
         setCountProducts={setCountProducts}
         count={count}
         setCount={setCount}
-      />
+        />
       <div className="paginado">
         <button className="paginado_boton" onClick={prevHandler}>
           Anterior
