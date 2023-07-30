@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import carro from "../imagenes/carro.png";
+import "../style/cart.css";
+import { Navbar } from "react-bootstrap";
 
 const Cart = ({
   allProducts,
@@ -15,25 +17,6 @@ const Cart = ({
   setCount,
 }) => {
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
-
-  const createPreference = async () => {
-    try {
-      const response = await axios.post("/create_preference", { 
-        description: allProducts[0].name,
-        price: allProducts[0].price,
-        quantity: count
-    });
-      return response.data.id;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleBuy = async () => {
-    const id = await createPreference();
-    navigate(`/pagos/${id}`);
-  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -75,8 +58,8 @@ const Cart = ({
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="me-2">
-        Cart
+      <Button variant="primary" onClick={handleShow} className="cartButton">
+        <img src={carro} alt="" className="carro"/>
       </Button>
       <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
@@ -106,12 +89,9 @@ const Cart = ({
             )}
             <div>Total de productos: {countProducts}</div>
             <div>${total}</div>
-            <button
-              onClick={() => handleBuy()}
-              disabled={!allProducts.length > 0}
-            >
-              Ir a pagar
-            </button>
+            <Link to="/pagos">
+              <button disabled={!allProducts.length > 0}>Ir a pagar</button>
+            </Link>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
