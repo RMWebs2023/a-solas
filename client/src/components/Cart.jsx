@@ -27,7 +27,7 @@ const Cart = ({
       return response.data.id;
     } catch (error) {
       console.log(error);
-    }
+    } 
   };
 
   const handleBuy = async () => {
