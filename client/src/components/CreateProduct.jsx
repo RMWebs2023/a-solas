@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postProducts } from "../redux/action";
+import "../style/admin.css"
 
 const Modal = ({ show, close }) => {
   const dispatch = useDispatch();
@@ -82,62 +83,49 @@ const Modal = ({ show, close }) => {
   return (
     <>
       {show ? (
-        <div>
-          <div>
-            <header>
-              <h2> Agregar un producto </h2>
-            </header>
-            <form onSubmit={(e) => onSubmit(e)}>
-              <label>
-                Nombre:
-                <input value={name} onChange={(e) => inputName(e)} />
-              </label>
-              <label>
-                Precio:
-                <input value={price} onChange={(e) => inputPrice(e)} />
-              </label>
-              <label>
-                Categoría:
-                <input value={category} onChange={(e) => inputCategory(e)} />
-              </label>
-              <label>
-                Subcategoría:
-                <input
-                  value={subcategory}
-                  onChange={(e) => inputSubcategory(e)}
-                />
-              </label>
-              <label>
-                Detalle:
-                <input value={details} onChange={(e) => inputDetails(e)} />
-              </label>
-              <label>
-                Descripción:
-                <input
-                  value={description}
-                  onChange={(e) => inputDescription(e)}
-                />
-              </label>
-              <label>
-                Imagen:
-                <input value={image} onChange={(e) => inputImage(e)} />
-              </label>
-              <label>
-                Cantidad:
-                <input value={quantity} onChange={(e) => inputQuantity(e)} />
-              </label>
-              <button submit="submit">Submit</button>
-            </form>
-            <footer>
-              <button
-                onClick={() => {
+        <div className="adm-add">
+          <header>
+            <h2 className="adm-add_title"> Agregar un producto </h2>
+          </header>
+          
+          <form className="adm-form_add" onSubmit={(e) => onSubmit(e)}>
+            <label className="form-label"> Nombre:
+              <input placeholder="Por ejemplo: vibrador de silicona..." value={name} onChange={(e) => inputName(e)} />
+            </label>
+            <label className="form-label"> Precio:
+              <input value={price} onChange={(e) => inputPrice(e)} />
+            </label>
+            <label className="form-label"> Categoría:
+              <input placeholder="Por ejemplo: Vibrador" value={category} onChange={(e) => inputCategory(e)} />
+            </label>
+            <label className="form-label"> Subcategoría:
+              <input placeholder="Por ejemplo: silicona" value={subcategory} onChange={(e) => inputSubcategory(e)}
+              />
+            </label>
+            <label className="form-label"> Detalle:
+              <input placeholder="Detalle" value={details} onChange={(e) => inputDetails(e)} />
+            </label>
+            <label className="form-label"> Descripción:
+              <input placeholder="Descripcion del producto" value={description} onChange={(e) => inputDescription(e)}
+              />
+            </label>
+            <label className="form-label"> Imagen:
+              <input placeholder="Insertar imagen del producto" value={image} onChange={(e) => inputImage(e)} />
+            </label>
+            <label className="form-label"> Cantidad:
+              <input value={quantity} onChange={(e) => inputQuantity(e)} />
+            </label>            
+          </form>
+
+          <footer className="footer-form">
+              <button className="boton-form" submit="submit">Crear</button>
+              <button className="boton" onClick={() => {
                   close();
                 }}
               >
-                Cancel
+                Cancelar creación
               </button>
-            </footer>
-          </div>
+          </footer>
         </div>
       ) : null}
     </>

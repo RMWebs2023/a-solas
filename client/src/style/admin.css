@@ -1,0 +1,128 @@
+/* CSS para admin.jsx, CreateProduct.jsx y EditProduct.jsx*/ 
+
+.adm {
+    background-color: black;
+    padding: 0px 20px;
+}
+
+.adm-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: rgba(208, 0, 110, 0.5);
+    border-radius: 180px;
+}
+
+.adm-titulo {
+    color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 15px;
+    font-family: "Jost", sans-serif;
+    letter-spacing: 2px;
+}
+
+.adm-add {
+    color: white;
+    width: 500px;
+    max-width: 500px;
+}
+
+.adm-add_title {
+    font-family: "Jost", sans-serif;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    padding: 15px;
+}
+
+.adm-form_add {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-around;
+    height: 500px;
+    width: 500px;
+}
+
+.form-label {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    width: 100%;
+    font-family: "Jost", sans-serif;
+    font-weight: 20px;
+}
+
+.boton-form {
+    font-family: "Jost", sans-serif;
+    font-weight: 45px;
+    color: white;
+    border: 2px #d0006f9f solid;
+    background-color: rgba(17, 25, 40, 0.25);
+}
+
+.footer-form {
+    background-color: transparent;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.edit-prod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: rgba(208, 0, 110, 0.5);
+    border-radius: 180px;
+}
+
+.edit-prod button {
+    margin: 7.5px 0px;
+}
+
+.adm-ed {
+    color: white;
+    width: 500px;
+    max-width: 500px;
+}
+
+.adm-form_ed {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-around;
+    height: 500px;
+    width: 500px;
+}
+
+.prod-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    width: 45%;
+}
+
+.producto {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.25);
+    border-radius: 12px;
+    border: 1px solid rgba(208, 0, 110);
+    padding: 38px;
+    filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+}
+

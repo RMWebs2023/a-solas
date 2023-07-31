@@ -27,6 +27,7 @@
 }
 
 .carro_1ra {
+    font-family: "Jost", sans-serif;
     display: grid;
     grid-template-columns: 30% 30% 30%;
     grid-template-rows: auto;
@@ -53,6 +54,7 @@
 }
 
 .carro-1ra_product__title {
+    font-family: "Jost", sans-serif;
     font-size: 20px;
     font-weight: bolder;
     margin: 0px !important;
