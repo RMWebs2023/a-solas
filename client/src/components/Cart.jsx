@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useNavigate } from "react-router-dom";
 import carro from "../imagenes/carro.png";
+import tachito from "../imagenes/tachito_blanco.png";
 import axios from "axios";
 import "../style/cart.css";
 
@@ -80,7 +81,7 @@ const Cart = ({
   return (
     <>
       <Button variant="primary" onClick={handleShow} className="cartButton">
-        <img src={carro} alt="" className="carro" />
+        <img src={carro} alt="" className="carro_icon" />
       </Button>
       <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
@@ -91,18 +92,28 @@ const Cart = ({
             {allProducts.length > 0 ? (
               allProducts.map((product, id) => (
                 <div key={id}>
-                  <div>
-                    <img src={product.image} alt="imagen de producto" />
-                    <h2>{product.name}</h2>
-                    <button onClick={() => addQuantity(product)}>+</button>
-                    <div>{count}</div>
-                    <button onClick={() => restQuantity(product)}>-</button>
-                    <span>AR${product.price}</span>
-                    <button onClick={() => deleteProduct(product)}>
-                      Tachito
-                    </button>
-                    <p>suma: {resultPrice}</p>
-                    <button onClick={emptyCart}>Vaciar carrito</button>
+                  <div className="carro_body">
+                    <div className="carro_1ra">
+                      <div className="carro-1ra_img">
+                        <img src={product.image} alt="imagen de producto" className="img-carro"/>
+                      </div>
+                      <div className="carro-1ra_product">
+                        <h2 className="carro-1ra_product__title">{product.name}</h2>
+                        <span className="carro-1ra_product__price">AR${product.price}</span>
+                        <div className="carro-1ra_counter">
+                          <button className="boton_counter" onClick={() => restQuantity(product)}>-</button>
+                          <span className="counter">{count}</span>
+                          <button className="boton_counter" onClick={() => addQuantity(product)}>+</button>
+                        </div>
+                      </div>
+                      <div className="carro-1ra_subtotal">
+                        <span>Subtotal: {resultPrice} </span>
+                        <button className="boton-counter_subtotal" onClick={() => deleteProduct(product)}>
+                          <img src={tachito} alt="" className="img-tachito"/>
+                        </button>
+                      </div>
+                    </div>
+                    <hr />
                   </div>
                 </div>
               ))
@@ -124,4 +135,4 @@ const Cart = ({
   );
 };
 
-export default Cart;
+export default Cart;

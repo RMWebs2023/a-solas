@@ -23,7 +23,7 @@ const Footer = () => {
             </a>
           </span>
         </div>
-        <div>
+        <div className="cont_logo">
           <img src={logo_blanco} alt="Logo" className="logo_footer" />
         </div>
         <div className="redes">
