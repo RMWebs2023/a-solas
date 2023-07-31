@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import carro from "../imagenes/carro.png";
+import axios from "axios";
+import "../style/cart.css";
 
 const Cart = ({
   allProducts,
@@ -15,19 +17,20 @@ const Cart = ({
   setCount,
 }) => {
   const [show, setShow] = useState(false);
+  const [resultPrice, setResultPrice] = useState(0);
   const navigate = useNavigate();
 
   const createPreference = async () => {
     try {
-      const response = await axios.post("/create_preference", { 
+      const response = await axios.post("/create_preference", {
         description: allProducts[0].name,
         price: allProducts[0].price,
-        quantity: count
-    });
+        quantity: count,
+      });
       return response.data.id;
     } catch (error) {
       console.log(error);
-    } 
+    }
   };
 
   const handleBuy = async () => {
@@ -42,6 +45,7 @@ const Cart = ({
   const addQuantity = (product) => {
     const f = allProducts.find((item) => item._id === product._id);
     if (f.quantity > 0 && count < f.quantity) {
+      setResultPrice(f.price + f.price);
       setCount(count + 1);
       setTotal(total + f.price);
       setCountProducts(countProducts + 1);
@@ -75,8 +79,8 @@ const Cart = ({
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="me-2">
-        Cart
+      <Button variant="primary" onClick={handleShow} className="cartButton">
+        <img src={carro} alt="" className="carro" />
       </Button>
       <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>
@@ -97,6 +101,7 @@ const Cart = ({
                     <button onClick={() => deleteProduct(product)}>
                       Tachito
                     </button>
+                    <p>suma: {resultPrice}</p>
                     <button onClick={emptyCart}>Vaciar carrito</button>
                   </div>
                 </div>

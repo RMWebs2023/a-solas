@@ -1,6 +1,5 @@
 import React from "react";
 import "../style/cards.css";
-import { Link } from "react-router-dom";
 
 const Card = ({
   products,
@@ -23,7 +22,7 @@ const Card = ({
       );
       setCount(count + 1);
       setTotal(total + product.price * count);
-      setCountProducts(countProducts + 1);
+      setCountProducts(countProducts + count);
       return setAllProducts([...products]);
     }
     setTotal(total + product.price * count);
@@ -37,15 +36,13 @@ const Card = ({
         {products.map((product, id) => (
           <div key={id} className="cards_productos" id="producto">
             <div className="container_cards wrapper">
-              <Link to={`/${product.name}`}>
               <img
                 className="banner-image"
                 src={product.image}
                 alt="imagen de producto"
               />
-              </Link>
               <h2 className="titulos">{product.name}</h2>
-              <p className="texto_descripcion">{product.description.slice(0,200)}...</p>
+              <p className="texto_descripcion">{product.description}</p>
               <button className="boton" onClick={() => addProduct(product)}>
                 Agregar al carrito
               </button>

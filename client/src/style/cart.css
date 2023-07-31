@@ -1,0 +1,23 @@
+.cartButton {
+    background-color: #d0006e;
+    width: 56px;
+    height: 40px;
+    padding: 4px 12px;
+    margin: 0px !important;
+}
+
+.carro {
+    width: 30px;
+    height: auto;
+}
+
+.btn-primary {
+    --bs-btn-bg: #d0006e !important;
+    --bs-btn-border-color: #d0006e !important;
+    --bs-btn-hover-bg: #d0006e !important;
+    --bs-btn-hover-border-color: #f1a0cb !important;
+    --bs-btn-active-bg: #f1a0cb !important;
+    --bs-btn-active-border-color: #d0006e !important;
+    --bs-btn-disabled-bg: #d0006e !important;
+    --bs-btn-disabled-border-color: #d0006e !important;
+}
