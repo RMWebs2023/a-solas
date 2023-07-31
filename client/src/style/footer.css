@@ -43,6 +43,15 @@ footer {
   color: white;
 }
 
+.cont_logo {
+  align-self: center;
+}
+
+.logo_footer {
+  width: 150px;
+  height: auto;
+}
+
 .redes {
   display: grid;
   grid-template-columns: 33% 33% 33%;
@@ -113,7 +122,7 @@ footer {
     top: -25px;
   }
 
-  span {
+  .wsp {
     display: none;
   }
 
