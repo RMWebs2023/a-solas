@@ -18,7 +18,7 @@ const Cart = ({
   setCount,
 }) => {
   const [show, setShow] = useState(false);
-  const [resultPrice, setResultPrice] = useState (0);
+  const [resultPrice, setResultPrice] = useState(0);
   const navigate = useNavigate();
 
   const createPreference = async () => {
@@ -120,13 +120,15 @@ const Cart = ({
             ) : (
               <p>El carrito está vacío</p>
             )}
-
-            {/*<Link to="/pagos">
-              <button disabled={!allProducts.length > 0}>Ir a pagar</button>
-            </Link>*/}
+            <div>Total de productos: {countProducts}</div>
+            <div>${total}</div>
+            <button
+              onClick={() => handleBuy()}
+              disabled={!allProducts.length > 0}
+            >
+              Ir a pagar
+            </button>
           </div>
-          <div>Total de productos: {countProducts}</div>
-          <div>${total}</div>
         </Offcanvas.Body>
       </Offcanvas>
     </>
