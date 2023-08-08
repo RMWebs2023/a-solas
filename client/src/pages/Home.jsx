@@ -30,7 +30,7 @@ const Home = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState([]);
 
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
@@ -129,7 +129,7 @@ const Home = () => {
         setCountProducts={setCountProducts}
         count={count}
         setCount={setCount}
-        />
+      />
       <div className="paginado">
         <button className="paginado_boton" onClick={prevHandler}>
           Anterior

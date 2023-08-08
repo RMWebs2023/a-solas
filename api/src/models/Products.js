@@ -30,6 +30,17 @@ const ProductsSchema = new Schema({
   quantity: {
     type: Number,
   },
+  new: {
+    type: Boolean,
+    default: false,
+  },
+  bestSeller: {
+    type: Boolean,
+    default: false,
+  },
+  quanty: {
+    type: Number,
+  },
 });
 
 ProductsSchema.methods.setImgUrl = function setImgUrl(filename) {

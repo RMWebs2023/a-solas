@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../style/cards.css";
 
 const Card = ({
@@ -9,24 +10,19 @@ const Card = ({
   setTotal,
   countProducts,
   setCountProducts,
-  count,
-  setCount,
 }) => {
   // función para agregar al carrito
   const addProduct = (product) => {
     if (allProducts.find((item) => item._id === product._id)) {
       const products = allProducts.map((item) =>
-        item._id === product._id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
+        item._id === product._id ? { ...item, quanty: item.quanty + 1 } : item
       );
-      setCount(count + 1);
-      setTotal(total + product.price * count);
-      setCountProducts(countProducts + count);
+      setTotal(total + product.price * product.quanty);
+      setCountProducts(countProducts + product.quanty);
       return setAllProducts([...products]);
     }
-    setTotal(total + product.price * count);
-    setCountProducts(countProducts + count);
+    setTotal(total + product.price * product.quanty);
+    setCountProducts(countProducts + product.quanty);
     setAllProducts([...allProducts, product]);
   };
 
@@ -36,11 +32,13 @@ const Card = ({
         {products.map((product, id) => (
           <div key={id} className="cards_productos" id="producto">
             <div className="container_cards wrapper">
-              <img
-                className="banner-image"
-                src={product.image}
-                alt="imagen de producto"
-              />
+              <Link to={`/${product.name}`}>
+                <img
+                  className="banner-image"
+                  src={product.image}
+                  alt="imagen de producto"
+                />
+              </Link>
               <h2 className="titulos">{product.name}</h2>
               <p className="texto_descripcion">{product.description}</p>
               <button className="boton" onClick={() => addProduct(product)}>
