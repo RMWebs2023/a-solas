@@ -32,8 +32,8 @@ const Admin = () => {
       </div>
 
       {products.map((product, id) => (
-        <div className="prod-card" key={id}>
-          <div >
+        <div key={id}>
+          <div className="prod-card">
             <div className="producto">
 
               <p>{product.name}</p>
