@@ -40,7 +40,7 @@ const Cart = ({
 
   const handleBuy = async () => {
     const id = await createPreference();
-    console.log(id)
+    // console.log
     return id
     //   // navigate(`/pagos/${id}`);
   };

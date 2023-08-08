@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { putProduct } from "../redux/action";
+import { deleteProducts } from "../redux/action";
 
 const EditProduct = ({ show, close, product }) => {
   const dispatch = useDispatch();
@@ -79,6 +80,12 @@ const EditProduct = ({ show, close, product }) => {
     location.reload();
   };
 
+  const deleteClick = (id) => {
+    dispatch(deleteProducts(id));
+    alert("Se ha eliminado el producto correctamente");
+    location.reload();
+  };
+
   return (
     <>
       {show ? (
@@ -87,7 +94,7 @@ const EditProduct = ({ show, close, product }) => {
             <h2 className="adm-add_title"> Edición del producto </h2>
           </header>
 
-          <form className="adm-form_ed" onSubmit={(e) => onSubmit(e)}>
+          <form className="adm-form_ed">
             <label className="form-label"> Nombre:
               <input value={name} onChange={(e) => inputName(e)} placeholder={product.name} />
             </label>
@@ -116,7 +123,7 @@ const EditProduct = ({ show, close, product }) => {
           </form>
 
           <footer className="footer-form">
-            <button className="boton-form" submit="submit">Editar</button>
+            <button className="boton-form" submit="submit" onClick={(e) => onSubmit(e)}>Editar</button>
             <button className="boton" onClick={() => {
                 close();
               }}

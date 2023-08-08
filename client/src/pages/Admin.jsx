@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProducts, getProducts } from "../redux/action";
+import { getProducts } from "../redux/action";
 import CreateProduct from "../components/CreateProduct";
 import EditProduct from "../components/EditProduct";
 import "../style/admin.css";
@@ -18,12 +18,6 @@ const Admin = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-
-  const deleteClick = (id) => {
-    dispatch(deleteProducts(id));
-    alert("Se ha eliminado el producto correctamente");
-    location.reload();
-  };
 
   return (
     <div className="adm">
