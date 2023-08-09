@@ -17,33 +17,22 @@ const Cart = ({
   setTotal,
   countProducts,
   setCountProducts,
+  preferenceId,
 }) => {
   const [show, setShow] = useState(false);
   const [subTotal, setSubTotal] = useState(0);
+ 
   const navigate = useNavigate();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const createPreference = async () => {
-    try {
-      const response = await axios.post("/create_preference", {
-        description: allProducts[0].name,
-        price: allProducts[0].price,
-        quantity: allProducts[0].quanty,
-      });
-      return response.data.id;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleBuy = async () => {
-    const id = await createPreference();
-    // console.log
-    return id
-    //   // navigate(`/pagos/${id}`);
-  };
+  // const handleBuy = async () => {
+  //   const id = await createPreference();
+  //   // console.log
+  //   return id
+  //   //   // navigate(`/pagos/${id}`);
+  // };
 
   // función para incrementar la cantidad
   const addQuantity = (product) => {
@@ -158,7 +147,7 @@ const Cart = ({
             )}
             <div>Total de productos: {countProducts}</div>
             <div>${total}</div>
-            <Wallet initialization={{ preferenceId: handleBuy() }} />
+            <Wallet initialization={{ preferenceId }} />
             {/* <button
               onClick={() => handleBuy()}
               disabled={!allProducts.length > 0}

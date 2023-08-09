@@ -7,6 +7,7 @@ import Cart from "../components/Cart";
 import Filter from "../components/Filter";
 import Personas from "../components/Personas";
 import Footer from "../components/Footer";
+import axios from "axios"
 import "../style/header.css";
 import "../style/home.css";
 
@@ -19,33 +20,47 @@ const Home = () => {
     dispatch(getProducts());
   }, []);
 
+  const [preferenceId, setPreferenceId] = useState("");
   // estados para filtrado y paginado
   const itemsPerPage = 9;
   const [name, setName] = useState("");
   const [dataPage, setDataPage] = useState(data);
   const [products, setProducts] = useState([...data].splice(0, itemsPerPage));
   const [currentPage, setCurrentPage] = useState(0);
-
+  
   // estados del carrito
   const [allProducts, setAllProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
   const [count, setCount] = useState([]);
-
+  
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
     if (category === "Todas") {
       setProducts([...data].splice(0, itemsPerPage));
       return;
     }
-
+    
     const filterProduct = data.filter(
       (product) => product.category === category
-    );
-
-    setProducts([...filterProduct].splice(0, itemsPerPage));
-  };
-
+      );
+      
+      setProducts([...filterProduct].splice(0, itemsPerPage));
+    };
+    
+    const createPreference = async () => {
+      try {
+        const response = await axios.post("/create_preference", {
+          description: allProducts[0].name,
+          price: allProducts[0].price,
+          quantity: allProducts[0].quanty,
+        });
+        console.log(response)
+        setPreferenceId(response.data.id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
   // función que filtra los productos dependiendo su subcategoría
   const filterSubcategory = (subcategory) => {
     if (subcategory === "Todas") {
@@ -115,6 +130,7 @@ const Home = () => {
           setCountProducts={setCountProducts}
           count={count}
           setCount={setCount}
+          preferenceId={preferenceId}
         />
       </div>
       <Header />
@@ -129,6 +145,7 @@ const Home = () => {
         setCountProducts={setCountProducts}
         count={count}
         setCount={setCount}
+        createPreference={createPreference}
       />
       <div className="paginado">
         <button className="paginado_boton" onClick={prevHandler}>

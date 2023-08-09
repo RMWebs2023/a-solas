@@ -10,6 +10,7 @@ const Card = ({
   setTotal,
   countProducts,
   setCountProducts,
+  createPreference
 }) => {
   // función para agregar al carrito
   const addProduct = (product) => {
@@ -41,7 +42,10 @@ const Card = ({
               </Link>
               <h2 className="titulos">{product.name}</h2>
               <p className="texto_descripcion">{product.description}</p>
-              <button className="boton" onClick={() => addProduct(product)}>
+              <button className="boton" onClick={() => {
+                addProduct(product)
+                createPreference()
+              }}>
                 Agregar al carrito
               </button>
               <span className="precio">AR${product.price}</span>
