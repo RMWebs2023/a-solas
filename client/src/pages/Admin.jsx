@@ -30,26 +30,29 @@ const Admin = () => {
       <div>
         
       </div>
-
+      <div className="prod-card">
       {products.map((product, id) => (
-        <div className="prod-card" key={id}>
-          <div >
+        <div className="card_admin" key={id}>
+          
             <div className="producto">
 
-              <p>{product.name}</p>
-              <p>{product.price}</p>
-              <p>{product.category}</p>
-              <p>{product.subcategory}</p>
-              <p>{product.description}</p>
-              <img src={product.image} />
-              <p>{product.quantity}</p>
+              <p><b>Nombre del producto:</b><br /> {product.name}</p>
+              <p><b>Precio:</b><br /> {product.price}</p>
+              <p><b>Categoria:</b><br /> {product.category}</p>
+              <p><b>Subcategoria:</b><br /> {product.subcategory}</p>
+              <p><b>Descripcion:</b></p>
+              <p className="desc-prod-adm"> {product.description}</p>
+              <p><b>Imagen:</b><br /></p>
+              <div className="img-prod-adm">
+                <img className="img-prod-card-adm" src={product.image} />
+              </div>
+              <p><b>Stock:</b><br />{product.quantity}</p>
 
               <div className="edit-prod">
                 <button className="boton" onClick={() => toggleEdit()}>Editar producto</button>
                 <EditProduct show={modalEdit} close={toggleEdit} product={product} />
               </div>
             </div>
-          </div>
           {/*<button className="boton" onClick={() => deleteClick(product._id)}>Eliminar</button>*/}
           
           
@@ -60,6 +63,7 @@ const Admin = () => {
 
         </div>
       ))}
+      </div>
     </div>
   );
 };
