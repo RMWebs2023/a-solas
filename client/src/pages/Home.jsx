@@ -7,7 +7,6 @@ import Cart from "../components/Cart";
 import Filter from "../components/Filter";
 import Personas from "../components/Personas";
 import Footer from "../components/Footer";
-import axios from "axios"
 import "../style/header.css";
 import "../style/home.css";
 
@@ -16,11 +15,11 @@ const Home = () => {
   // hook que llama productos de la bdd
   const data = useSelector((state) => state.products);
 
+  // efecto que llama a los productos al iniciar la página
   useEffect(() => {
     dispatch(getProducts());
   }, []);
 
-  const [preferenceId, setPreferenceId] = useState("");
   // estados para filtrado y paginado
   const itemsPerPage = 9;
   const [name, setName] = useState("");
@@ -47,20 +46,7 @@ const Home = () => {
       
       setProducts([...filterProduct].splice(0, itemsPerPage));
     };
-    
-    const createPreference = async () => {
-      try {
-        const response = await axios.post("/create_preference", {
-          description: allProducts[0].name,
-          price: allProducts[0].price,
-          quantity: allProducts[0].quanty,
-        });
-        console.log(response)
-        setPreferenceId(response.data.id);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+
   // función que filtra los productos dependiendo su subcategoría
   const filterSubcategory = (subcategory) => {
     if (subcategory === "Todas") {
@@ -130,7 +116,6 @@ const Home = () => {
           setCountProducts={setCountProducts}
           count={count}
           setCount={setCount}
-          preferenceId={preferenceId}
         />
       </div>
       <Header />
@@ -145,7 +130,6 @@ const Home = () => {
         setCountProducts={setCountProducts}
         count={count}
         setCount={setCount}
-        createPreference={createPreference}
       />
       <div className="paginado">
         <button className="paginado_boton" onClick={prevHandler}>

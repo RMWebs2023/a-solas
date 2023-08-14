@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { useNavigate } from "react-router-dom";
 import carro from "../imagenes/carro.png";
 import tachito from "../imagenes/tachito_blanco.png";
-import axios from "axios";
 import "../style/cart.css";
-import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 
 initMercadoPago("TEST-c642f671-50cd-4061-9a9d-629c0cf079b4");
 
@@ -17,24 +16,29 @@ const Cart = ({
   setTotal,
   countProducts,
   setCountProducts,
-  preferenceId,
 }) => {
   const [show, setShow] = useState(false);
   const [subTotal, setSubTotal] = useState(0);
- 
-  const navigate = useNavigate();
+  const [preferenceId, setPreferenceId] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // const handleBuy = async () => {
-  //   const id = await createPreference();
-  //   // console.log
-  //   return id
-  //   //   // navigate(`/pagos/${id}`);
-  // };
+  // función que crea el ID que recibe MercadoPago
+  const createPreference = async () => {
+    try {
+      const response = await axios.post("/create_preference", {
+        description: allProducts[0].name,
+        price: allProducts[0].price,
+        quantity: allProducts[0].quanty,
+      });
+      setPreferenceId(response.data.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // función para incrementar la cantidad
+  // función para incrementar la cantidad del producto
   const addQuantity = (product) => {
     const productFilter = allProducts.find((item) => item._id === product._id);
     if (productFilter) {
@@ -51,7 +55,7 @@ const Cart = ({
     }
   };
 
-  // función para restar la cantidad
+  // función para restar la cantidad del producto
   const restQuantity = (product) => {
     const productFilter = allProducts.find((item) => item._id === product._id);
     if (productFilter && productFilter.quanty > 0) {
@@ -147,13 +151,8 @@ const Cart = ({
             )}
             <div>Total de productos: {countProducts}</div>
             <div>${total}</div>
+            <button onClick={() => createPreference()}>Pagar</button>
             <Wallet initialization={{ preferenceId }} />
-            {/* <button
-              onClick={() => handleBuy()}
-              disabled={!allProducts.length > 0}
-            >
-              Ir a pagar
-            </button> */}
           </div>
         </Offcanvas.Body>
       </Offcanvas>
