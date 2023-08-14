@@ -10,9 +10,8 @@ const Card = ({
   setTotal,
   countProducts,
   setCountProducts,
-  createPreference
 }) => {
-  // función para agregar al carrito
+  // función para agregar productos al carrito
   const addProduct = (product) => {
     if (allProducts.find((item) => item._id === product._id)) {
       const products = allProducts.map((item) =>
@@ -42,10 +41,7 @@ const Card = ({
               </Link>
               <h2 className="titulos">{product.name}</h2>
               <p className="texto_descripcion">{product.description}</p>
-              <button className="boton" onClick={() => {
-                addProduct(product)
-                createPreference()
-              }}>
+              <button className="boton" onClick={() => addProduct(product)}>
                 Agregar al carrito
               </button>
               <span className="precio">AR${product.price}</span>
