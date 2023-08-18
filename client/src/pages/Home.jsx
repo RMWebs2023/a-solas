@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import Cart from "../components/Cart";
 import Filter from "../components/Filter";
-import Personas from "../components/Personas";
+import Comercial from "../components/Comercial";
 import Footer from "../components/Footer";
 import "../style/header.css";
 import "../style/home.css";
@@ -119,7 +119,7 @@ const Home = () => {
         />
       </div>
       <Header />
-      <Personas />
+      <Comercial />
       <Card
         products={products}
         allProducts={allProducts}

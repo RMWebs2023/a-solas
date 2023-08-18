@@ -185,7 +185,7 @@
   .container_cards {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 40% 10% 30% 10% 10%;
+    grid-template-rows: 30% 10% 35% 10%;
     place-items: center;
   }
 
