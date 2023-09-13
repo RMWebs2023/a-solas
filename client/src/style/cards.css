@@ -20,7 +20,9 @@
   filter: drop-shadow(0 30px 10px rgba(0, 0, 0, 0.125));
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 30% 15% 35% 10%;
+  grid-template-rows: 30% 10% 35% 10%;
+  align-content: space-between;
+  row-gap: 5px;
 }
 
 .wrapper {
@@ -183,7 +185,7 @@
   .container_cards {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 40% 10% 30% 10% 10%;
+    grid-template-rows: 30% 10% 35% 10%;
     place-items: center;
   }
 
