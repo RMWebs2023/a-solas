@@ -18,7 +18,6 @@ const Cart = ({
   setCountProducts,
 }) => {
   const [show, setShow] = useState(false);
-  const [subTotal, setSubTotal] = useState(0);
   const [preferenceId, setPreferenceId] = useState("");
 
   const handleClose = () => setShow(false);
@@ -45,11 +44,14 @@ const Cart = ({
       setAllProducts(
         allProducts.map((item) =>
           item._id === product._id
-            ? { ...product, quanty: productFilter.quanty + 1 }
+            ? {
+                ...product,
+                quanty: productFilter.quanty + 1,
+                subTotal: productFilter.subTotal + productFilter.price,
+              }
             : item
         )
       );
-      setSubTotal(productFilter.price + productFilter.price);
       setTotal(total + productFilter.price);
       setCountProducts(countProducts + 1);
     }
@@ -62,7 +64,11 @@ const Cart = ({
       setAllProducts(
         allProducts.map((item) =>
           item._id === product._id
-            ? { ...product, quanty: productFilter.quanty - 1 }
+            ? {
+                ...product,
+                quanty: productFilter.quanty - 1,
+                subTotal: productFilter.subTotal - productFilter.price,
+              }
             : item
         )
       );
@@ -133,7 +139,7 @@ const Cart = ({
                         </div>
                       </div>
                       <div className="carro-1ra_subtotal">
-                        <span>Subtotal: {subTotal} </span>
+                        <span>Subtotal: {product.subTotal} </span>
                         <button
                           className="boton-counter_subtotal"
                           onClick={() => deleteProduct(product)}

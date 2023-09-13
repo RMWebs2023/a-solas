@@ -38,9 +38,6 @@ const ProductsSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  quanty: {
-    type: Number,
-  },
 });
 
 ProductsSchema.methods.setImgUrl = function setImgUrl(filename) {

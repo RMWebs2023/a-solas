@@ -26,26 +26,26 @@ const Home = () => {
   const [dataPage, setDataPage] = useState(data);
   const [products, setProducts] = useState([...data].splice(0, itemsPerPage));
   const [currentPage, setCurrentPage] = useState(0);
-  
+
   // estados del carrito
   const [allProducts, setAllProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
   const [count, setCount] = useState([]);
-  
+
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
     if (category === "Todas") {
       setProducts([...data].splice(0, itemsPerPage));
       return;
     }
-    
+
     const filterProduct = data.filter(
       (product) => product.category === category
-      );
-      
-      setProducts([...filterProduct].splice(0, itemsPerPage));
-    };
+    );
+
+    setProducts([...filterProduct].splice(0, itemsPerPage));
+  };
 
   // función que filtra los productos dependiendo su subcategoría
   const filterSubcategory = (subcategory) => {

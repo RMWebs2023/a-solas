@@ -14,7 +14,6 @@ const Modal = ({ show, close }) => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [quantity, setQuantity] = useState(0);
-  const [quanty, setQuanty] = useState(1);
 
   const inputName = (e) => {
     e.preventDefault;
@@ -67,7 +66,6 @@ const Modal = ({ show, close }) => {
       description,
       image,
       quantity,
-      quanty: 1,
     };
     dispatch(postProducts(product));
     setName("");
@@ -78,7 +76,6 @@ const Modal = ({ show, close }) => {
     setDescription("");
     setImage("");
     setQuantity(0);
-    setQuanty(0)
     alert("Se ha creado el producto");
     location.reload();
   };

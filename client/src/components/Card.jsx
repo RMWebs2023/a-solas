@@ -15,12 +15,20 @@ const Card = ({
   const addProduct = (product) => {
     if (allProducts.find((item) => item._id === product._id)) {
       const products = allProducts.map((item) =>
-        item._id === product._id ? { ...item, quanty: item.quanty + 1 } : item
+        item._id === product._id
+          ? {
+              ...item,
+              quanty: item.quanty + 1,
+              subTotal: item.subTotal + item.price,
+            }
+          : item
       );
       setTotal(total + product.price * product.quanty);
       setCountProducts(countProducts + product.quanty);
       return setAllProducts([...products]);
     }
+    product.quanty = 1;
+    product.subTotal = product.price;
     setTotal(total + product.price * product.quanty);
     setCountProducts(countProducts + product.quanty);
     setAllProducts([...allProducts, product]);
