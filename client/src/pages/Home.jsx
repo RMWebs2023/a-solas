@@ -7,12 +7,13 @@ import Cart from "../components/Cart";
 import Filter from "../components/Filter";
 import Comercial from "../components/Comercial";
 import Footer from "../components/Footer";
+import Paginated from "../components/Paginated";
 import "../style/header.css";
 import "../style/home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
-  // hook que llama productos de la bdd
+  // hook que llama productos de la base de datos
   const data = useSelector((state) => state.products);
 
   // efecto que llama a los productos al iniciar la página
@@ -78,25 +79,6 @@ const Home = () => {
     setProducts(search);
   };
 
-  // botón next del paginado
-  const nextHandler = () => {
-    const allElements = dataPage.length;
-    const nextPage = currentPage + 1;
-    const firstIndex = nextPage * itemsPerPage;
-    if (firstIndex > allElements) return;
-    setProducts([...dataPage].splice(firstIndex, itemsPerPage));
-    setCurrentPage(nextPage);
-  };
-
-  // botón prev del paginado
-  const prevHandler = () => {
-    const prevPage = currentPage - 1;
-    if (prevPage < 0) return;
-    const firstIndex = prevPage * itemsPerPage;
-    setProducts([...dataPage].splice(firstIndex, itemsPerPage));
-    setCurrentPage(prevPage);
-  };
-
   return (
     <>
       <div className="Navbar_filter">
@@ -131,15 +113,13 @@ const Home = () => {
         count={count}
         setCount={setCount}
       />
-      <div className="paginado">
-        <button className="paginado_boton" onClick={prevHandler}>
-          Anterior
-        </button>
-        <div className="paginado_numero">{currentPage}</div>
-        <button className="paginado_boton" onClick={nextHandler}>
-          Siguiente
-        </button>
-      </div>
+      <Paginated
+        dataPage={dataPage}
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        setProducts={setProducts}
+        setCurrentPage={setCurrentPage}
+      />
       <Footer />
     </>
   );
