@@ -82,13 +82,6 @@ const Home = () => {
   return (
     <>
       <div className="Navbar_filter">
-        <Filter
-          name={name}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          filterCategory={filterCategory}
-          filterSubcategory={filterSubcategory}
-        />
         <Cart
           allProducts={allProducts}
           setAllProducts={setAllProducts}
@@ -102,17 +95,26 @@ const Home = () => {
       </div>
       <Header />
       <Comercial />
-      <Card
-        products={products}
-        allProducts={allProducts}
-        setAllProducts={setAllProducts}
-        total={total}
-        setTotal={setTotal}
-        countProducts={countProducts}
-        setCountProducts={setCountProducts}
-        count={count}
-        setCount={setCount}
-      />
+      <div className="filtroCard">
+        <Filter
+          name={name}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          filterCategory={filterCategory}
+          filterSubcategory={filterSubcategory}
+        />
+        <Card
+          products={products}
+          allProducts={allProducts}
+          setAllProducts={setAllProducts}
+          total={total}
+          setTotal={setTotal}
+          countProducts={countProducts}
+          setCountProducts={setCountProducts}
+          count={count}
+          setCount={setCount}
+        />
+      </div>
       <Paginated
         dataPage={dataPage}
         currentPage={currentPage}

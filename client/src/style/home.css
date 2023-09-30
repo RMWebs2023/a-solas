@@ -2,6 +2,11 @@ body {
   background-color: black !important;
 }
 
+.filtroCard {
+  display: grid;
+  grid-template-columns: 20% 80%
+}
+
 .paginado {
   display: grid;
   grid-template-columns: 20% 5% 20%;

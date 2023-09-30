@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../style/navbar.css";
+import "../style/filtro.css";
 
 const Filter = ({
   name,
@@ -64,85 +64,24 @@ const Filter = ({
     <>
       {[false].map((expand) => (
         <Navbar key={expand} expand={expand} className="mb-3">
-          <Container fluid>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Offcanvas
-              className="offcanvas"
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="start"
-            >
-              <Offcanvas.Header closeButton className="offcanvas-header">
-                <Offcanvas.Title
-                  className="offcanvas-title"
-                  id={`offcanvasNavbarLabel-expand-${expand}`}
-                >
-                  Categorías de productos
-                </Offcanvas.Title>
-              </Offcanvas.Header>
+            <Offcanvas.Header closeButton className="offcanvas-header">
+              <Offcanvas.Title className="offcanvas-title" id={`offcanvasNavbarLabel-expand-${expand}`}>
+                Filtro
+              </Offcanvas.Title>
+            </Offcanvas.Header>
               <Offcanvas.Body className="offcanvas-body">
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   {/* Todos los botones de categorías menos los que tiene subcategorías */}
                   {sinSubcategory.map((category, id) => (
-                    <Nav.Link
-                      key={id}
-                      href="#producto"
-                      onClick={() => filterCategory(category)}
-                    >
+                    <Nav.Link className="itemFiltro" key={id} href="#producto" onClick={() => filterCategory(category)}>
                       {category}
                     </Nav.Link>
                   ))}
-
-                  {/* Botones para filtrar por subcategorías */}
-                  <NavDropdown
-                    title="Lubricantes"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    {subLubricantes.map((subcategory, id) => (
-                      <Dropdown.Item
-                        key={id}
-                        href="#producto"
-                        onClick={() => filterSubcategory(subcategory)}
-                      >
-                        {subcategory}
-                      </Dropdown.Item>
-                    ))}
-                  </NavDropdown>
-
-                  <NavDropdown
-                    title="Disfraces"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    {subDisfraces.map((subcategory, id) => (
-                      <Dropdown.Item
-                        key={id}
-                        href="#producto"
-                        onClick={() => filterSubcategory(subcategory)}
-                      >
-                        {subcategory}
-                      </Dropdown.Item>
-                    ))}
-                  </NavDropdown>
-
-                  <NavDropdown
-                    title="Lenceria"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    {subLenceria.map((subcategory, id) => (
-                      <Dropdown.Item
-                        key={id}
-                        href="#producto"
-                        onClick={() => filterSubcategory(subcategory)}
-                      >
-                        {subcategory}
-                      </Dropdown.Item>
-                    ))}
-                  </NavDropdown>
                 </Nav>
 
                 {/* Barra de búsqueda */}
                 <Form className="d-flex">
-                  <Form.Control
+                  <Form.Control 
                     type="search"
                     placeholder="Producto"
                     className="me-2"
@@ -163,8 +102,6 @@ const Filter = ({
                   </Button>
                 </Form>
               </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
         </Navbar>
       ))}
     </>

@@ -6,7 +6,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import "../style/navbar.css";
+import "../style/filtro.css";
 
 const EditProduct = ({ product }) => {
   const dispatch = useDispatch();

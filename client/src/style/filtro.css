@@ -1,11 +1,27 @@
+.mb-3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-color: #d0006fd7;
+  max-height: 500px;
+  width: 250px;
+  position: sticky !important;
+  top: 50px;
+  margin-left: 15px;
+  border-radius: 12px;
+  padding: 10px !important;
+}
+
 .offcanvas {
-  background-color: rgb(10, 10, 10) !important;
+  background-color: #d0006fd7 !important;
   border-color: #d0006fd7 !important;
 }
 
 .offcanvas-header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-color: #d0006fd7;
+  width: 100%;
+  display: grid !important;
+  grid-template-columns: 80% 20% !important;
+  justify-content: center !important;
 }
 
 .offcanvas-title {
@@ -17,7 +33,6 @@
 }
 
 .offcanvas-body {
-  color: white;
   font-family: "Jost", sans-serif;
   font-size: 18px;
   text-align: center;
@@ -41,7 +56,12 @@
   --bs-dropdown-link-hover-color: white !important;
 }
 
+.itemFiltro {
+  color: white !important;
+}
+
 .container-fluid {
   position: relative;
   top: 8px;
 }
+
