@@ -35,6 +35,7 @@
   transition: filter 300ms;
   position: relative;
   top: 25px;
+  filter: drop-shadow(0 0 2em grey);
 }
 .logo_landing:hover {
   filter: drop-shadow(0 0 2em #d0006e);

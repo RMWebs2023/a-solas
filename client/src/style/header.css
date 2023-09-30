@@ -5,25 +5,23 @@
 }
 
 .Navbar_filter {
-  height: 100%;
+  height: 50px;
   position: sticky;
   top: 0;
   z-index: 99;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  padding: 0px 50px;
+  justify-content: right;
+  padding: 15px 50px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-color: #d0006f9f;
   place-items: center;
 }
 
 .showcase {
-  position: relative;
-  top: -72px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-color: #d0006e;
   color: #fff;
@@ -45,6 +43,7 @@
   height: auto;
   will-change: filter;
   transition: filter 300ms;
+  filter: drop-shadow(3px 3px 6px black);
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #000000);
@@ -73,6 +72,7 @@
   font-weight: 400;
   font-size: 200px;
   text-align: center;
+  text-shadow: 3px 3px 6px black;
 }
 
 .subtitle {
@@ -99,11 +99,6 @@
     position: sticky;
     top: 0;
     z-index: 99;
-  }
-
-  .mb-3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-    background-color: #d0006f9f;
   }
 
   .showcase {
@@ -160,6 +155,7 @@
     font-weight: 400;
     font-size: 150px;
     text-align: center;
+    text-shadow: 3px 3px 6px black;
   }
 
   .subtitle {

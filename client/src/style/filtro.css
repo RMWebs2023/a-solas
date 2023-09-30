@@ -1,12 +1,13 @@
 .mb-3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-  background-color: #d0006fd7;
+  background-color: black;
   max-height: 500px;
   width: 250px;
   position: sticky !important;
   top: 50px;
   margin-left: 15px;
   border-radius: 12px;
+  border: 1px solid rgba(208, 0, 110);
   padding: 10px !important;
 }
 
@@ -18,6 +19,7 @@
 .offcanvas-header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-color: #d0006fd7;
+  border-radius: 12px;
   width: 100%;
   display: grid !important;
   grid-template-columns: 80% 20% !important;
@@ -33,6 +35,8 @@
 }
 
 .offcanvas-body {
+  background-color: black;
+  color: white;
   font-family: "Jost", sans-serif;
   font-size: 18px;
   text-align: center;
