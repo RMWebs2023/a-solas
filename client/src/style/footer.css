@@ -20,6 +20,7 @@ footer {
   font-weight: 400;
   font-size: 100px;
   text-align: center;
+  text-shadow: 3px 3px 6px black;
 }
 
 .subtitle_footer {
@@ -50,6 +51,7 @@ footer {
 .logo_footer {
   width: 150px;
   height: auto;
+  filter: drop-shadow(3px 3px 6px black);
 }
 
 .redes {
@@ -65,18 +67,21 @@ footer {
   width: 30px;
   height: auto;
   border-radius: 50px;
+  filter: drop-shadow(3px 3px 6px black);
 }
 
 .tiktok {
   width: 30px;
   height: auto;
   border-radius: 50px;
+  filter: drop-shadow(3px 3px 6px black);
 }
 
 .wsp_2 {
   width: 30px;
   height: auto;
   border-radius: 50px;
+  filter: drop-shadow(3px 3px 6px black);
 }
 
 .RMWebs {
@@ -111,6 +116,7 @@ footer {
     font-weight: 400;
     font-size: 75px;
     text-align: center;
+    text-shadow: 3px 3px 6px black;
   }
 
   .subtitle_footer {

@@ -5,7 +5,7 @@
 }
 
 .Navbar_filter {
-  height: 50px;
+  height: 60px;
   position: sticky;
   top: 0;
   z-index: 99;
@@ -102,10 +102,8 @@
   }
 
   .showcase {
-    position: relative;
-    top: -72px;
+    height: 100%;
     width: 100%;
-    height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     background-color: #d0006e;
     color: #fff;
@@ -191,10 +189,8 @@
   }
 
   .showcase {
-    position: relative;
-    top: -72px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     background-color: #d0006e;
     color: #fff;
