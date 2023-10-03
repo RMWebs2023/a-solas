@@ -1,13 +1,15 @@
 .mb-3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-  background-color: #d0006fd7;
+  background-color: black;
   max-height: 500px;
   width: 250px;
   position: sticky !important;
-  top: 50px;
+  top: 65px;
   margin-left: 15px;
   border-radius: 12px;
+  border: 1px solid rgba(208, 0, 110);
   padding: 10px !important;
+  filter: drop-shadow(2px 2px 4px #d0006e);
 }
 
 .offcanvas {
@@ -18,6 +20,7 @@
 .offcanvas-header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-color: #d0006fd7;
+  border-radius: 12px;
   width: 100%;
   display: grid !important;
   grid-template-columns: 80% 20% !important;
@@ -33,6 +36,8 @@
 }
 
 .offcanvas-body {
+  background-color: black;
+  color: white;
   font-family: "Jost", sans-serif;
   font-size: 18px;
   text-align: center;
@@ -65,3 +70,14 @@
   top: 8px;
 }
 
+
+@media only screen and (max-width: 768px) {
+  .mb-3 {
+    max-height: 500px;
+    width: 90%;
+    position: sticky !important;
+    top: 65px;
+    padding-right: 10px;
+  }
+  
+}

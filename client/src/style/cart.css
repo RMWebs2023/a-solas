@@ -8,6 +8,7 @@
     height: 40px;
     padding: 4px 12px;
     margin: 0px !important;
+    filter: drop-shadow(2px 2px 4px black);
 }
 
 .carro_icon {

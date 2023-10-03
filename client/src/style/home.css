@@ -4,7 +4,7 @@ body {
 
 .filtroCard {
   display: grid;
-  grid-template-columns: 20% 80%
+  grid-template-columns: 30% 70%;
 }
 
 .paginado {
@@ -35,4 +35,12 @@ body {
   border: 2px #d0006f9f solid;
   background-color: rgba(17, 25, 40, 0.25);
 }
+
+/* Responsive para tablet */
+
+@media only screen and (max-width: 768px) {
+  
+}
+
+
 

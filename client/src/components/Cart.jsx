@@ -157,7 +157,6 @@ const Cart = ({
             )}
             <div>Total de productos: {countProducts}</div>
             <div>${total}</div>
-            <button onClick={() => createPreference()}>Pagar</button>
             <Wallet initialization={{ preferenceId }} />
           </div>
         </Offcanvas.Body>
