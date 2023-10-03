@@ -111,7 +111,10 @@ const Admin = () => {
                   <br />
                 </p>
                 <div className="img-prod-adm">
-                  <img className="img-prod-card-adm" src={product.image} />
+                  <img
+                    className="img-prod-card-adm"
+                    src={product.image.secure_url}
+                  />
                 </div>
                 <p>
                   <b>Stock:</b>

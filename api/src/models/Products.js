@@ -24,24 +24,13 @@ const ProductsSchema = new Schema({
     required: true,
   },
   image: {
-    type: String,
-    // required: true,
+    secure_url: String,
+    public_id: String,
   },
   quantity: {
     type: Number,
-  },
-  new: {
-    type: Boolean,
-    default: false,
-  },
-  bestSeller: {
-    type: Boolean,
-    default: false,
+    required: true,
   },
 });
-
-ProductsSchema.methods.setImgUrl = function setImgUrl(filename) {
-  this.imgUrl = `localhost:3000/public/${filename}`;
-};
 
 module.exports = model("products", ProductsSchema);

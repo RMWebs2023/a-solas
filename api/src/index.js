@@ -1,15 +1,24 @@
+const cors = require("cors");
+const morgan = require("morgan");
 const express = require("express");
-const cors = require("cors")
-const connection = require("./database.js");
+const fileUpload = require("express-fileupload");
+const connection = require("./utils/database.js");
 const router = require("./routes/index.routes.js");
 
 const app = express();
 
-app.use(cors())
+app.use(cors());
+app.use(morgan("dev"));
 app.use(express.json());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "./images",
+  })
+);
 app.use("/", router);
-app.use('/public', express.static(`${__dirname}/imagenes/productos`))
 
+// función que levanta el servidor
 app.listen(3000, () => {
   connection();
   console.log("Server is listening on port", 3000);

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// función que llama al url del servidor que trae los productos del servidor
 export const getProducts = () => {
   return async function (dispatch) {
     try {
@@ -11,6 +12,7 @@ export const getProducts = () => {
   };
 };
 
+// función que llama al url del servidor que crea productos
 export const postProducts = (data) => {
   return async function (dispatch) {
     try {
@@ -22,6 +24,7 @@ export const postProducts = (data) => {
   };
 };
 
+// función que llama al url del servidor que modifica productos
 export const putProduct = (id, data) => {
   return async function (dispatch) {
     try {
@@ -33,6 +36,7 @@ export const putProduct = (id, data) => {
   };
 };
 
+// función que llama al url del servidor que elimina productos
 export const deleteProducts = (id) => {
   return async function (dispatch) {
     try {
@@ -44,6 +48,7 @@ export const deleteProducts = (id) => {
   };
 };
 
+// función que llama al url del servidor que crea la preferencia para pagar por MercadoPago
 export const createPreference = async (products) => {
   try {
     const response = await axios.post("/create_preference", {
@@ -51,7 +56,6 @@ export const createPreference = async (products) => {
       price: products.filter((item) => item.price),
       quantity: products.filter((item) => item.quantity),
     });
-    console.log(response)
     return response.data.id;
   } catch (error) {
     console.log(error);

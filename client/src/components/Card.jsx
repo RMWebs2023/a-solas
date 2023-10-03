@@ -41,7 +41,7 @@ const Card = ({
             <div className="container_cards wrapper">
                 <img
                   className="banner-image"
-                  src={product.image}
+                  src={product.image.secure_url}
                   alt="imagen de producto"
                 />
               <h2 className="titulos">{product.name}</h2>
