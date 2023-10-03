@@ -4,8 +4,10 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const connection = require("./utils/database.js");
 const router = require("./routes/index.routes.js");
+require("dotenv").config();
 
 const app = express();
+const PORT = process.env.PORT
 
 app.use(cors());
 app.use(morgan("dev"));
@@ -19,7 +21,7 @@ app.use(
 app.use("/", router);
 
 // función que levanta el servidor
-app.listen(3000, () => {
+app.listen(PORT, () => {
   connection();
-  console.log("Server is listening on port", 3000);
+  console.log("Server is listening on port", PORT);
 });
