@@ -94,7 +94,7 @@ const EditProduct = ({ product }) => {
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} expand={expand} className="mb-3">
+        <Navbar key={expand} expand={expand} className="editProd">
           <Container fluid>
             {/* Botón editar */}
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>

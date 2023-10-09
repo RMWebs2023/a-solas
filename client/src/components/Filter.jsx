@@ -69,7 +69,7 @@ const Filter = ({
                 Filtro
               </Offcanvas.Title>
             </Offcanvas.Header>
-              <Offcanvas.Body className="offcanvas-body">
+              <Offcanvas.Body className="offcanvas-body cuerpo-filtro">
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   {/* Todos los botones de categorías menos los que tiene subcategorías */}
                   {sinSubcategory.map((category, id) => (

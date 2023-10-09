@@ -1,15 +1,20 @@
 .mb-3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-  background-color: black;
+  background-color: #d0006fd7;
   max-height: 500px;
-  width: 250px;
+  width: 100%;
   position: sticky !important;
   top: 65px;
-  margin-left: 15px;
+  margin-left: 8px;
   border-radius: 12px;
   border: 1px solid rgba(208, 0, 110);
   padding: 10px !important;
-  filter: drop-shadow(2px 2px 4px #d0006e);
+}
+
+.cuerpo-filtro {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-color: #d0006fd7 !important;
+  border-radius: 12px;
 }
 
 .offcanvas {
@@ -33,6 +38,7 @@
   font-weight: bold;
   font-family: "Jost", sans-serif;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 .offcanvas-body {
@@ -65,19 +71,24 @@
   color: white !important;
 }
 
+a:hover {
+  color: black !important;
+}
+
 .container-fluid {
   position: relative;
   top: 8px;
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 826px) {
   .mb-3 {
-    max-height: 500px;
-    width: 90%;
-    position: sticky !important;
-    top: 65px;
-    padding-right: 10px;
+    max-height: 100% !important;
+    position: static !important;
+    width: 95%;
+    position: sticky;
+    top: 0px;
+    overflow-y: auto;
+    margin: 0px 10px;
   }
-  
 }

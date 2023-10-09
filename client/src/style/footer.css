@@ -106,7 +106,7 @@ footer {
   .asolas {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 25% 50% 25%;
+    grid-template-rows: 2;
     width: 100%;
     height: 100%;
   }
@@ -126,6 +126,10 @@ footer {
     text-align: center;
     position: relative;
     top: -25px;
+  }
+
+  span {
+    display: none;
   }
 
   .wsp {
