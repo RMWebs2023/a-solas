@@ -9,14 +9,13 @@ import "../style/admin.css";
 
 const CreateProduct = () => {
   const dispatch = useDispatch();
-
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [details, setDetails] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [quantity, setQuantity] = useState(0);
 
   const inputName = (e) => {
@@ -51,7 +50,7 @@ const CreateProduct = () => {
 
   const inputImage = (e) => {
     e.preventDefault;
-    setImage(e.target.value);
+    setImage(e.target.files[0]);
   };
 
   const inputQuantity = (e) => {
@@ -61,24 +60,23 @@ const CreateProduct = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const product = {
-      name,
-      price,
-      category,
-      subcategory,
-      details,
-      description,
-      image,
-      quantity,
-    };
-    dispatch(postProducts(product));
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("category", category);
+    formData.append("subcategory", subcategory);
+    formData.append("details", details);
+    formData.append("description", description);
+    formData.append("image", image);
+    formData.append("quantity", quantity);
+    dispatch(postProducts(formData));
     setName("");
     setPrice(0);
     setCategory("");
     setSubcategory("");
     setDetails("");
     setDescription("");
-    setImage("");
+    setImage(null);
     setQuantity(0);
     alert("Se ha creado el producto");
     location.reload();
@@ -111,7 +109,11 @@ const CreateProduct = () => {
               <Offcanvas.Body className="offcanvas-body">
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   {/* Formulario de creación de producto */}
-                  <form className="adm-form_add" onSubmit={(e) => onSubmit(e)}>
+                  <form
+                    className="adm-form_add"
+                    onSubmit={(e) => onSubmit(e)}
+                    encType="multipart/form-data"
+                  >
                     <label className="form-label">
                       {" "}
                       Nombre:
@@ -166,8 +168,9 @@ const CreateProduct = () => {
                       {" "}
                       Imagen:
                       <input
+                        type="file"
+                        accept="image/*"
                         placeholder="Insertar imagen del producto"
-                        value={image}
                         onChange={(e) => inputImage(e)}
                       />
                     </label>

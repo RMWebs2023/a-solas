@@ -5,7 +5,8 @@ import store, { saveState } from "./redux/store.js";
 import App from "./App.jsx";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:3000";
+// axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://a-solas-pky3-dev.fl0.io/"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

@@ -1,13 +1,14 @@
 const { Router } = require("express");
-const products = require("../models/Products.js");
 const mercadopago = require("mercadopago");
+const Products = require("../models/Products.js");
+const uploadImage = require("../utils/cloudinary.js");
+require("dotenv").config();
 
 const router = Router();
 
 // token de MercadoPago
 mercadopago.configure({
-  access_token:
-    "TEST-298625319681219-072818-34c0e6fd31cb993506970ee698e06331-1112761190",
+  access_token: process.env.TOKEN_MP,
 });
 
 // ruta para recibir información de los productos a pagar
@@ -41,40 +42,42 @@ router.post("/create_preference", (req, res) => {
 });
 
 // ruta que llama a todos los productos de la bdd
-router.get("/", (req, res) => {
-  products
-    .find()
+router.get("/", async (req, res) => {
+  await Products.find()
     .then((data) => res.status(201).json(data))
     .catch((error) => res.status(400).json({ message: error.message }));
 });
 
 // ruta que crea un producto
-router.post("/", (req, res) => {
-  const product = products(req.body);
-  if (req.file) {
-    const { filename } = req.file;
-    product.setImgUrl(filename);
+router.post("/", async (req, res) => {
+  const product = Products(req.body);
+
+  if (req.files?.image) {
+    const result = await uploadImage(req.files.image.tempFilePath);
+    product.image = {
+      secure_url: result.secure_url,
+      public_id: result.public_id,
+    };
   }
-  product
+
+  await product
     .save()
     .then((data) => res.status(201).json(data))
     .catch((error) => res.status(400).json({ message: error.message }));
 });
 
 // ruta que modifica un producto
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
-  products
-    .findByIdAndUpdate(id, req.body)
+  await Products.findByIdAndUpdate(id, req.body)
     .then((data) => res.status(201).json(data))
     .catch((error) => res.status(400).json({ message: error.message }));
 });
 
 // ruta que elimina un producto
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  products
-    .findByIdAndDelete(id)
+  await Products.findByIdAndDelete(id)
     .then((data) => res.status(201).json(data))
     .catch((error) => res.status(400).json({ message: error.message }));
 });
