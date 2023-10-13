@@ -1,12 +1,30 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import store, { saveState } from "./redux/store.js";
-import App from "./App.jsx";
+import Admin from "./pages/Admin";
+import Home from "./pages/Home.jsx";
+import Landing from "./pages/Landing";
 import axios from "axios";
 
+const router = createHashRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
+  },
+]);
+
 // axios.defaults.baseURL = "http://localhost:3000";
-axios.defaults.baseURL = "https://a-solas-pky3-dev.fl0.io/"
+axios.defaults.baseURL = "https://a-solas-pky3-dev.fl0.io/";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -18,7 +36,7 @@ const Root = () => {
 
   return (
     <Provider store={store}>
-      <App />
+      <RouterProvider router={router} />
     </Provider>
   );
 };
