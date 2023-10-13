@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import store, { saveState } from "./redux/store.js";
+import App from "./App.jsx";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home.jsx";
 import Landing from "./pages/Landing";
@@ -36,7 +37,9 @@ const Root = () => {
 
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
     </Provider>
   );
 };
