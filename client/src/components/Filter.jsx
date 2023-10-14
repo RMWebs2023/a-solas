@@ -64,44 +64,50 @@ const Filter = ({
     <>
       {[false].map((expand) => (
         <Navbar key={expand} expand={expand} className="mb-3">
-            <Offcanvas.Header closeButton className="offcanvas-header">
-              <Offcanvas.Title className="offcanvas-title" id={`offcanvasNavbarLabel-expand-${expand}`}>
-                Filtro
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-              <Offcanvas.Body className="offcanvas-body cuerpo-filtro">
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  {/* Todos los botones de categorías menos los que tiene subcategorías */}
-                  {sinSubcategory.map((category, id) => (
-                    <Nav.Link className="itemFiltro" key={id} href="#producto" onClick={() => filterCategory(category)}>
-                      {category}
-                    </Nav.Link>
-                  ))}
-                </Nav>
+          <Offcanvas.Header className="offcanvas-header">
+            <Offcanvas.Title
+              className="offcanvas-title"
+              id={`offcanvasNavbarLabel-expand-${expand}`}
+            >
+              Filtro
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body className="offcanvas-body cuerpo-filtro">
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              {/* Todos los botones de categorías menos los que tiene subcategorías */}
+              {sinSubcategory.map((category, id) => (
+                <Nav.Link
+                  className="itemFiltro"
+                  key={id}
+                  onClick={() => filterCategory(category)}
+                >
+                  {category}
+                </Nav.Link>
+              ))}
+            </Nav>
 
-                {/* Barra de búsqueda */}
-                <Form className="d-flex">
-                  <Form.Control 
-                    type="search"
-                    placeholder="Producto"
-                    className="me-2"
-                    aria-label="Search"
-                    value={name}
-                    onChange={(event) => handleChange(event)}
-                  />
-                  <Button
-                    className="boton"
-                    variant="outline-light"
-                    type="submit"
-                    onClick={(event) => {
-                      handleSubmit(event);
-                      location.href = "#producto";
-                    }}
-                  >
-                    Buscar
-                  </Button>
-                </Form>
-              </Offcanvas.Body>
+            {/* Barra de búsqueda */}
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Producto"
+                className="me-2"
+                aria-label="Search"
+                value={name}
+                onChange={(event) => handleChange(event)}
+              />
+              <Button
+                className="boton"
+                variant="outline-light"
+                type="submit"
+                onClick={(event) => {
+                  handleSubmit(event);
+                }}
+              >
+                Buscar
+              </Button>
+            </Form>
+          </Offcanvas.Body>
         </Navbar>
       ))}
     </>

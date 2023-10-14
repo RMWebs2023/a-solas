@@ -94,7 +94,14 @@ const Cart = ({
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="cartButton">
+      <Button
+        variant="primary"
+        onClick={() => {
+          handleShow();
+          createPreference();
+        }}
+        className="cartButton"
+      >
         <img src={carro} alt="" className="carro_icon" />
       </Button>
       <Offcanvas show={show} onHide={handleClose} placement="end">
@@ -110,7 +117,7 @@ const Cart = ({
                     <div className="carro_1ra">
                       <div className="carro-1ra_img">
                         <img
-                          src={product.image}
+                          src={product.image.secure_url}
                           alt="imagen de producto"
                           className="img-carro"
                         />

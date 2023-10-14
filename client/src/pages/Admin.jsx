@@ -68,7 +68,6 @@ const Admin = () => {
 
   return (
     <>
-      
       <div className="adm">
         <h1 className="adm-titulo">Administrador</h1>
         <div className="adm-cont">
@@ -112,7 +111,10 @@ const Admin = () => {
                     <br />
                   </p>
                   <div className="img-prod-adm">
-                    <img className="img-prod-card-adm" src={product.image} />
+                    <img
+                      className="img-prod-card-adm"
+                      src={product.image.secure_url}
+                    />
                   </div>
                   <p>
                     <b>Stock:</b>
