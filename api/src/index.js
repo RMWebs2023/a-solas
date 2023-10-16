@@ -18,9 +18,9 @@ app.use(
     tempFileDir: "./images",
   })
 );
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://asolas.com.ar");
-
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://asolas.com.ar');
+  next();
 });
 app.use("/", router);
 
