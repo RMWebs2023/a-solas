@@ -19,7 +19,7 @@ app.use(
   })
 );
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://asolas.com.ar');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
 app.use("/", router);
