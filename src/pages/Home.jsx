@@ -33,7 +33,8 @@ const Home = () => {
   const [total, setTotal] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
   const [count, setCount] = useState([]);
-
+  localStorage.setItem("cart", JSON.stringify(allProducts));
+  
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
     if (category === "Todas") {

@@ -7,7 +7,11 @@ import App from "./App.jsx";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home.jsx";
 import Landing from "./pages/Landing";
+import Login from "./pages/Login.jsx";
 import axios from "axios";
+import Buyer from "./pages/Buyer.jsx";
+
+axios.defaults.baseURL = "https://a-solas-pky3-dev.fl0.io/";
 
 const router = createHashRouter([
   {
@@ -22,10 +26,15 @@ const router = createHashRouter([
     path: "/admin",
     element: <Admin />,
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/buyer",
+    element: <Buyer />,
+  },
 ]);
-
-// axios.defaults.baseURL = "http://localhost:3000";
-axios.defaults.baseURL = "https://a-solas-pky3-dev.fl0.io/";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

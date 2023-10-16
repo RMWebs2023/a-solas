@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import carro from "../imagenes/carro.png";
 import tachito from "../imagenes/tachito_blanco.png";
 import "../style/cart.css";
-
-initMercadoPago("TEST-c642f671-50cd-4061-9a9d-629c0cf079b4");
 
 const Cart = ({
   allProducts,
@@ -17,25 +14,11 @@ const Cart = ({
   countProducts,
   setCountProducts,
 }) => {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const [preferenceId, setPreferenceId] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // función que crea el ID que recibe MercadoPago
-  const createPreference = async () => {
-    try {
-      const response = await axios.post("/create_preference", {
-        description: allProducts[0].name,
-        price: allProducts[0].price,
-        quantity: allProducts[0].quanty,
-      });
-      setPreferenceId(response.data.id);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   // función para incrementar la cantidad del producto
   const addQuantity = (product) => {
@@ -54,6 +37,8 @@ const Cart = ({
       );
       setTotal(total + productFilter.price);
       setCountProducts(countProducts + 1);
+      const cart = allProducts;
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
 
@@ -74,12 +59,16 @@ const Cart = ({
       );
       setTotal(total - productFilter.price);
       setCountProducts(countProducts - 1);
+      const cart = allProducts;
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
     if (productFilter && productFilter.quanty === 1) {
       const result = allProducts.filter((item) => item._id !== product._id);
       setTotal(total - product.price * product.quanty);
       setCountProducts(countProducts - product.quanty);
       setAllProducts(result);
+      const cart = allProducts;
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
   };
 
@@ -90,16 +79,18 @@ const Cart = ({
     setTotal(total - product.price * product.quanty);
     setCountProducts(countProducts - product.quanty);
     setAllProducts(results);
+    const cart = allProducts;
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
+
+  let cart = localStorage.getItem("cart");
+  cart = JSON.parse(cart);
 
   return (
     <>
       <Button
         variant="primary"
-        onClick={() => {
-          handleShow();
-          createPreference();
-        }}
+        onClick={() => handleShow()}
         className="cartButton"
       >
         <img src={carro} alt="" className="carro_icon" />
@@ -110,8 +101,8 @@ const Cart = ({
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div>
-            {allProducts.length > 0 ? (
-              allProducts.map((product, id) => (
+            {cart.length > 0 ? (
+              cart.map((product, id) => (
                 <div key={id}>
                   <div className="carro_body">
                     <div className="carro_1ra">
@@ -164,7 +155,7 @@ const Cart = ({
             )}
             <div>Total de productos: {countProducts}</div>
             <div>${total}</div>
-            <Wallet initialization={{ preferenceId }} />
+            <button onClick={() => navigate("/buyer")}>Ir a pagar</button>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
