@@ -26,6 +26,9 @@ const ProductsSchema = new Schema({
   color: {
     type: String,
   },
+  flavors:{
+    type: String,
+  },
   image: {
     secure_url: String,
     public_id: String,

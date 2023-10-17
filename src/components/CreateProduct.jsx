@@ -18,53 +18,59 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState(0);
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
+  const [flavors, setFlavors] = useState("");
 
   const inputName = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setName(e.target.value);
   };
 
   const inputPrice = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setPrice(e.target.value);
   };
 
   const inputCategory = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setCategory(e.target.value);
   };
 
   const inputSubcategory = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setSubcategory(e.target.value);
   };
 
   const inputDescription = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setDescription(e.target.value);
   };
 
   const inputImage = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setImage(e.target.files[0]);
   };
 
   const inputQuantity = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setQuantity(e.target.value);
   };
 
   const inputSize = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setSize(e.target.value);
   };
 
   const inputColor = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setColor(e.target.value);
   };
 
-  const onSubmit = async (e) => {
+  const inputFlavors = (e) => {
+    e.preventDefault();
+    setFlavors(e.target.value);
+  };
+
+  const onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
@@ -76,12 +82,12 @@ const CreateProduct = () => {
     formData.append("quantity", quantity);
     formData.append("size", size);
     formData.append("color", color);
-    await dispatch(postProducts(formData));
+    formData.append("flavors", flavors);
+    dispatch(postProducts(formData));
     setName("");
     setPrice(0);
     setCategory("");
     setSubcategory("");
-    setDetails("");
     setDescription("");
     setImage(null);
     setQuantity(0);
@@ -190,6 +196,14 @@ const CreateProduct = () => {
                       {" "}
                       Color:
                       <input value={color} onChange={(e) => inputColor(e)} />
+                    </label>
+                    <label className="form-label">
+                      {" "}
+                      Sabor:
+                      <input
+                        value={flavors}
+                        onChange={(e) => inputFlavors(e)}
+                      />
                     </label>
                   </form>
 
