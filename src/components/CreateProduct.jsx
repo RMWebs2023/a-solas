@@ -13,10 +13,11 @@ const CreateProduct = () => {
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
-  const [details, setDetails] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [quantity, setQuantity] = useState(0);
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
 
   const inputName = (e) => {
     e.preventDefault;
@@ -38,11 +39,6 @@ const CreateProduct = () => {
     setSubcategory(e.target.value);
   };
 
-  const inputDetails = (e) => {
-    e.preventDefault;
-    setDetails(e.target.value);
-  };
-
   const inputDescription = (e) => {
     e.preventDefault;
     setDescription(e.target.value);
@@ -58,18 +54,29 @@ const CreateProduct = () => {
     setQuantity(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const inputSize = (e) => {
+    e.preventDefault;
+    setSize(e.target.value);
+  };
+
+  const inputColor = (e) => {
+    e.preventDefault;
+    setColor(e.target.value);
+  };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
     formData.append("price", price);
     formData.append("category", category);
     formData.append("subcategory", subcategory);
-    formData.append("details", details);
     formData.append("description", description);
     formData.append("image", image);
     formData.append("quantity", quantity);
-    dispatch(postProducts(formData));
+    formData.append("size", size);
+    formData.append("color", color);
+    await dispatch(postProducts(formData));
     setName("");
     setPrice(0);
     setCategory("");
@@ -78,6 +85,7 @@ const CreateProduct = () => {
     setDescription("");
     setImage(null);
     setQuantity(0);
+    setSize("");
     alert("Se ha creado el producto");
     location.reload();
   };
@@ -148,15 +156,6 @@ const CreateProduct = () => {
                     </label>
                     <label className="form-label">
                       {" "}
-                      Detalle:
-                      <input
-                        placeholder="Detalle"
-                        value={details}
-                        onChange={(e) => inputDetails(e)}
-                      />
-                    </label>
-                    <label className="form-label">
-                      {" "}
                       Descripción:
                       <input
                         placeholder="Descripcion del producto"
@@ -181,6 +180,16 @@ const CreateProduct = () => {
                         value={quantity}
                         onChange={(e) => inputQuantity(e)}
                       />
+                    </label>
+                    <label className="form-label">
+                      {" "}
+                      Talle:
+                      <input value={size} onChange={(e) => inputSize(e)} />
+                    </label>
+                    <label className="form-label">
+                      {" "}
+                      Color:
+                      <input value={color} onChange={(e) => inputColor(e)} />
                     </label>
                   </form>
 

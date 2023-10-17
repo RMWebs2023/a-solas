@@ -16,16 +16,20 @@ const ProductsSchema = new Schema({
   subcategory: {
     type: String,
   },
-  details: {
-    type: String,
-  },
   description: {
     type: String,
     required: true,
   },
+  size: {
+    type: String,
+  },
+  color: {
+    type: String,
+  },
   image: {
     secure_url: String,
     public_id: String,
+    required: true,
   },
   quantity: {
     type: Number,
