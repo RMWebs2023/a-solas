@@ -32,7 +32,7 @@ const ProductsSchema = new Schema({
   image: {
     secure_url: String,
     public_id: String,
-    // required: true,
+    required: true,
   },
   quantity: {
     type: Number,

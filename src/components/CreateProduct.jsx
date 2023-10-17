@@ -212,6 +212,7 @@ const CreateProduct = () => {
                       className="boton-form"
                       submit="submit"
                       onClick={(e) => onSubmit(e)}
+                      disabled={!image}
                     >
                       Crear
                     </button>
