@@ -70,9 +70,9 @@ const CreateProduct = () => {
     setFlavors(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
+    const formData = await new FormData();
     formData.append("name", name);
     formData.append("price", price);
     formData.append("category", category);
@@ -83,7 +83,7 @@ const CreateProduct = () => {
     formData.append("size", size);
     formData.append("color", color);
     formData.append("flavors", flavors);
-    dispatch(postProducts(formData));
+    await dispatch(postProducts(formData));
     setName("");
     setPrice(0);
     setCategory("");

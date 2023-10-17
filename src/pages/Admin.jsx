@@ -13,8 +13,8 @@ const Admin = () => {
   const data = useSelector((state) => state.products);
 
   // efecto que llama a los productos al iniciar la página
-  useEffect(() => {
-    dispatch(getProducts());
+  useEffect(async () => {
+    await dispatch(getProducts());
   }, []);
 
   const [name, setName] = useState("");
@@ -85,7 +85,7 @@ const Admin = () => {
             filterSubcategory={filterSubcategory}
           />
           <div className="prod-card">
-            <CardAdmin products={data} />
+            <CardAdmin products={products} />
           </div>
         </div>
       </div>
