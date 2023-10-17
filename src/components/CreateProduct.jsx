@@ -140,7 +140,11 @@ const CreateProduct = () => {
                     <label className="form-label">
                       {" "}
                       Precio:
-                      <input value={price} onChange={(e) => inputPrice(e)} />
+                      <input
+                        type="number"
+                        value={price}
+                        onChange={(e) => inputPrice(e)}
+                      />
                     </label>
                     <label className="form-label">
                       {" "}
@@ -183,6 +187,7 @@ const CreateProduct = () => {
                       {" "}
                       Cantidad:
                       <input
+                        type="number"
                         value={quantity}
                         onChange={(e) => inputQuantity(e)}
                       />
