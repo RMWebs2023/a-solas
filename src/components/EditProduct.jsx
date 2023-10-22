@@ -21,32 +21,32 @@ const EditProduct = ({ product }) => {
   const [quantity, setQuantity] = useState(0);
 
   const inputName = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setName(e.target.value);
   };
 
   const inputPrice = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setPrice(e.target.value);
   };
 
   const inputCategory = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setCategory(e.target.value);
   };
 
   const inputSubcategory = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setSubcategory(e.target.value);
   };
 
   const inputDetails = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setDetails(e.target.value);
   };
 
   const inputDescription = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setDescription(e.target.value);
   };
 
@@ -56,7 +56,7 @@ const EditProduct = ({ product }) => {
   };
 
   const inputQuantity = (e) => {
-    e.preventDefault;
+    e.preventDefault();
     setQuantity(e.target.value);
   };
 
@@ -123,6 +123,7 @@ const EditProduct = ({ product }) => {
                       {" "}
                       Nombre:
                       <input
+                        type="text"
                         value={name}
                         onChange={(e) => inputName(e)}
                         placeholder={product.name}

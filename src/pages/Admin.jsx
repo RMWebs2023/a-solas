@@ -13,8 +13,8 @@ const Admin = () => {
   const data = useSelector((state) => state.products);
 
   // efecto que llama a los productos al iniciar la página
-  useEffect(async () => {
-    await dispatch(getProducts());
+  useEffect(() => {
+    dispatch(getProducts());
   }, []);
 
   const [name, setName] = useState("");

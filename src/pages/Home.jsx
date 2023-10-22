@@ -34,7 +34,7 @@ const Home = () => {
   const [countProducts, setCountProducts] = useState(0);
   const [count, setCount] = useState([]);
   localStorage.setItem("cart", JSON.stringify(allProducts));
-  
+
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
     if (category === "Todas") {
@@ -50,9 +50,13 @@ const Home = () => {
   };
 
   // función que filtra los productos dependiendo su subcategoría
-  const filterSubcategory = (subcategory) => {
+  const filterSubcategory = (subcategory, category) => {
     if (subcategory === "Todas") {
-      setProducts(data.filter((p) => p.category === "Lubricantes"));
+      setProducts(
+        data
+          .filter((product) => product.category === category)
+          .splice(0, itemsPerPage)
+      );
       return;
     }
 
@@ -60,7 +64,7 @@ const Home = () => {
       (product) => product.subcategory === subcategory
     );
 
-    setProducts(filterProduct);
+    setProducts(filterProduct).splice(0, itemsPerPage);
   };
 
   // funciones para la searchbar

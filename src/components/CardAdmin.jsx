@@ -4,8 +4,7 @@ import EditProduct from "./EditProduct";
 const CardAdmin = ({ products }) => {
   return (
     <>
-        {products &&
-          products.map((product, id) => (
+        {products.map((product, id) => (
             <div className="card_admin" key={id}>
               <div className="producto">
                 <p>

@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
-import Dropdown from "react-bootstrap/Dropdown";
-import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -20,44 +18,39 @@ const Filter = ({
   // hook que llama productos de la bdd
   const data = useSelector((state) => state.products);
 
-  // se crea un nuevo array de las categorías de los productos
+  // filtro que filtra productos sin subcategoría
+  const productWithoutSubcategory = data.filter(
+    (product) => product.category && !product.subcategory
+  );
+
+  // filtro que filtra productos con subcategoría
+  const productWithSubcategory = data.filter((product) => product.subcategory);
+
+  // se crea un nuevo array de los productos con subcategoría
+  const allCategoriesWithSubcategory = [
+    ...new Set(productWithSubcategory.map((product) => product.category)),
+  ];
+
+  // se crea un nuevo array de los productos sin subcategoría
   const allCategories = [
     "Todas",
-    ...new Set(data.map((product) => product.category)),
+    ...new Set(
+      productWithoutSubcategory
+        .filter(
+          (product) => !allCategoriesWithSubcategory.includes(product.category)
+        )
+        .map((product) => product.category)
+    ),
   ];
 
-  // variable que filtra las categorías que no tienen subcategorías
-  const sinSubcategory = allCategories.filter(
-    (category) =>
-      category !== "Lubricantes" &&
-      category !== "Disfraces" &&
-      category !== "Lenceria"
-  );
-
-  // división de subcategorías de lubricantes
-  const lubricantes = data.filter(
-    (product) => product.category === "Lubricantes"
-  );
-
-  const subLubricantes = [
+  // obtener todas las subcategorías únicas de productos con subcategorías
+  const allSubcategories = [
     "Todas",
-    ...new Set(lubricantes.map((lubricante) => lubricante.subcategory)),
-  ];
-
-  // división de subcategorías de disfraces
-  const disfraces = data.filter((product) => product.category === "Disfraces");
-
-  const subDisfraces = [
-    "Todas",
-    ...new Set(disfraces.map((disfraz) => disfraz.subcategory)),
-  ];
-
-  // división de subcategorías de lencería
-  const lenceria = data.filter((product) => product.category === "Lenceria");
-
-  const subLenceria = [
-    "Todas",
-    ...new Set(lenceria.map((lenc) => lenc.subcategory)),
+    ...new Set(
+      productWithSubcategory
+        .filter((product) => product.subcategory)
+        .map((product) => product.subcategory)
+    ),
   ];
 
   return (
@@ -74,8 +67,8 @@ const Filter = ({
           </Offcanvas.Header>
           <Offcanvas.Body className="offcanvas-body cuerpo-filtro">
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              {/* Todos los botones de categorías menos los que tiene subcategorías */}
-              {sinSubcategory.map((category, id) => (
+              {/* Todos los botones de categorías sin subcategorías */}
+              {allCategories.map((category, id) => (
                 <Nav.Link
                   className="itemFiltro"
                   key={id}
@@ -85,6 +78,32 @@ const Filter = ({
                 </Nav.Link>
               ))}
             </Nav>
+
+            {/* Todos los botones con subcategorías */}
+            {allCategoriesWithSubcategory.map((category, id) => (
+              <NavDropdown key={id} title={category}>
+                <Nav.Link onClick={() => filterSubcategory("Todas", category)}>
+                  Todas
+                </Nav.Link>
+
+                {allSubcategories
+                  .filter((subcategory) =>
+                    productWithSubcategory.some(
+                      (product) =>
+                        product.category === category &&
+                        product.subcategory.includes(subcategory)
+                    )
+                  )
+                  .map((subcategory, subId) => (
+                    <Nav.Link
+                      key={subId}
+                      onClick={() => filterSubcategory(subcategory, category)}
+                    >
+                      {subcategory}
+                    </Nav.Link>
+                  ))}
+              </NavDropdown>
+            ))}
 
             {/* Barra de búsqueda */}
             <Form className="d-flex">

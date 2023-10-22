@@ -32,7 +32,7 @@ const Paginated = ({
       <button className="paginado_boton" onClick={prevHandler}>
         Anterior
       </button>
-      <div className="paginado_numero">{currentPage}</div>
+      <div className="paginado_numero">{currentPage + 1}</div>
       <button className="paginado_boton" onClick={nextHandler}>
         Siguiente
       </button>
