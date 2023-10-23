@@ -38,17 +38,20 @@ const Admin = () => {
   };
 
   // función que filtra los productos dependiendo su subcategoría
-  const filterSubcategory = (subcategory) => {
+  const filterSubcategory = (subcategory, category) => {
     if (subcategory === "Todas") {
-      setProducts(data.filter((p) => p.category === "Lubricantes"));
+      setProducts(
+        data
+          .filter((product) => product.category === category)
+          .splice(0, itemsPerPage)
+      );
       return;
     }
-
     const filterProduct = data.filter(
       (product) => product.subcategory === subcategory
     );
 
-    setProducts(filterProduct);
+    setProducts(filterProduct).splice(0, itemsPerPage);
   };
 
   // funciones para la searchbar
