@@ -3,22 +3,21 @@ const { Schema, model } = require("mongoose");
 const ProductsSchema = new Schema({
   name: {
     type: String,
-    // required: true,
+    required: true,
   },
   price: {
     type: Number,
-    // required: true,
+    required: true,
   },
   category: {
     type: String,
-    // required: true,
+    required: true,
   },
   subcategory: {
     type: String,
   },
   description: {
     type: String,
-    // required: true,
   },
   size: {
     type: String,
@@ -35,7 +34,6 @@ const ProductsSchema = new Schema({
   },
   quantity: {
     type: Number,
-    // required: true,
   },
 });
 

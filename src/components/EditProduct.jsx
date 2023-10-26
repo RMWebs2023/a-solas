@@ -10,15 +10,16 @@ import "../style/filtro.css";
 
 const EditProduct = ({ product }) => {
   const dispatch = useDispatch();
-
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
-  const [details, setDetails] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState("");
+  const [size, setSize] = useState("");
+  const [color, setColor] = useState("");
+  const [flavors, setFlavors] = useState("");
 
   const inputName = (e) => {
     e.preventDefault();
@@ -40,19 +41,14 @@ const EditProduct = ({ product }) => {
     setSubcategory(e.target.value);
   };
 
-  const inputDetails = (e) => {
-    e.preventDefault();
-    setDetails(e.target.value);
-  };
-
   const inputDescription = (e) => {
     e.preventDefault();
     setDescription(e.target.value);
   };
 
   const inputImage = (e) => {
-    e.preventDefault;
-    setImage(e.target.value);
+    e.preventDefault();
+    setImage(e.target.files[0]);
   };
 
   const inputQuantity = (e) => {
@@ -60,27 +56,45 @@ const EditProduct = ({ product }) => {
     setQuantity(e.target.value);
   };
 
+  const inputSize = (e) => {
+    e.preventDefault();
+    setSize(e.target.value);
+  };
+
+  const inputColor = (e) => {
+    e.preventDefault();
+    setColor(e.target.value);
+  };
+
+  const inputFlavors = (e) => {
+    e.preventDefault();
+    setFlavors(e.target.value);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      name,
-      price,
-      category,
-      subcategory,
-      details,
-      description,
-      image,
-      quantity,
-    };
-    dispatch(putProduct(product._id, data));
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("category", category);
+    formData.append("subcategory", subcategory);
+    formData.append("description", description);
+    formData.append("image", image);
+    formData.append("quantity", quantity);
+    formData.append("size", size);
+    formData.append("color", color);
+    formData.append("flavors", flavors);
+    dispatch(putProduct(product._id, formData));
     setName("");
-    setPrice(0);
+    setPrice("");
     setCategory("");
     setSubcategory("");
-    setDetails("");
     setDescription("");
     setImage("");
-    setQuantity(0);
+    setQuantity("");
+    setSize("");
+    setColor("");
+    setFlavors("");
     alert("Se ha modificado el producto");
     location.reload();
   };
@@ -118,78 +132,102 @@ const EditProduct = ({ product }) => {
               <Offcanvas.Body className="offcanvas-body">
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   {/* Formulario de edición de producto */}
-                  <form className="adm-form_ed">
+                  <form
+                    className="adm-form_add"
+                    onSubmit={(e) => onSubmit(e)}
+                    encType="multipart/form-data"
+                  >
                     <label className="form-label">
                       {" "}
                       Nombre:
                       <input
-                        type="text"
+                        placeholder={product.name}
                         value={name}
                         onChange={(e) => inputName(e)}
-                        placeholder={product.name}
                       />
                     </label>
                     <label className="form-label">
                       {" "}
                       Precio:
                       <input
+                        placeholder={product.price}
+                        type="number"
                         value={price}
                         onChange={(e) => inputPrice(e)}
-                        placeholder={product.price}
                       />
                     </label>
                     <label className="form-label">
                       {" "}
                       Categoría:
                       <input
+                        placeholder={product.category}
                         value={category}
                         onChange={(e) => inputCategory(e)}
-                        placeholder={product.category}
                       />
                     </label>
                     <label className="form-label">
                       {" "}
                       Subcategoría:
                       <input
+                        placeholder={product.subcategory}
                         value={subcategory}
                         onChange={(e) => inputSubcategory(e)}
-                        placeholder={product.subcategory}
-                      />
-                    </label>
-                    <label className="form-label">
-                      {" "}
-                      Detalle:
-                      <input
-                        value={details}
-                        onChange={(e) => inputDetails(e)}
-                        placeholder={product.details}
                       />
                     </label>
                     <label className="form-label">
                       {" "}
                       Descripción:
-                      <textarea
+                      <input
+                        placeholder={product.description}
                         value={description}
                         onChange={(e) => inputDescription(e)}
-                        placeholder={product.description}
                       />
                     </label>
                     <label className="form-label">
                       {" "}
                       Imagen:
                       <input
-                        value={image}
-                        onChange={(e) => inputImage(e)}
                         placeholder={product.image}
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => inputImage(e)}
                       />
                     </label>
                     <label className="form-label">
                       {" "}
                       Cantidad:
                       <input
+                        placeholder={product.quantity}
+                        type="number"
                         value={quantity}
                         onChange={(e) => inputQuantity(e)}
-                        placeholder={product.quantity}
+                      />
+                    </label>
+                    <label className="form-label">
+                      {" "}
+                      Talle:
+                      <input
+                        placeholder={product.size}
+                        value={size}
+                        onChange={(e) => inputSize(e)}
+                      />
+                    </label>
+                    <label className="form-label">
+                      {" "}
+                      Color:
+                      <input
+                        placeholder={product.color}
+                        value={color}
+                        onChange={(e) => inputColor(e)}
+                      />
+                    </label>
+                    <label className="form-label">
+                      {" "}
+                      Sabor:
+                      <input
+                        placeholder={product.flavors}
+                        value={flavors}
+                        onChange={(e) => inputFlavors(e)}
                       />
                     </label>
                   </form>

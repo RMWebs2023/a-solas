@@ -92,6 +92,8 @@ const CreateProduct = () => {
     setImage(null);
     setQuantity(0);
     setSize("");
+    setColor("");
+    setFlavors("");
     alert("Se ha creado el producto");
     location.reload();
   };

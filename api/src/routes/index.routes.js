@@ -22,8 +22,8 @@ router.post("/create_preference", (req, res) => {
       },
     ],
     back_urls: {
-      success: "http://localhost:5173",
-      failure: "http://localhost:5173",
+      success: "https://rmwebs2023.github.io/a-solas/#/home",
+      failure: "https://rmwebs2023.github.io/a-solas/#/home",
       pending: "",
     },
     auto_return: "approved",
@@ -58,6 +58,8 @@ router.post("/", async (req, res) => {
       secure_url: result.secure_url,
       public_id: result.public_id,
     };
+  } else {
+    console.log("Missing image to load");
   }
 
   await product
@@ -69,9 +71,40 @@ router.post("/", async (req, res) => {
 // ruta que modifica un producto
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
-  await Products.findByIdAndUpdate(id, req.body)
-    .then((data) => res.status(201).json(data))
-    .catch((error) => res.status(400).json({ message: error.message }));
+  const updatedProduct = {};
+
+  if (req.files?.image) {
+    const result = await uploadImage(req.files.image.tempFilePath);
+    updatedProduct.image = {
+      secure_url: result.secure_url,
+      public_id: result.public_id,
+    };
+  }
+
+  Object.keys(req.body).forEach((key) => {
+    if (
+      req.body[key] !== undefined &&
+      req.body[key] !== null &&
+      req.body[key] !== ""
+    ) {
+      updatedProduct[key] = req.body[key];
+    }
+  });
+
+  try {
+    if (Object.keys(updatedProduct).length > 0) {
+      const result = await Products.findByIdAndUpdate(id, updatedProduct, {
+        new: true,
+      });
+      res.status(200).json(result);
+    } else {
+      res.status(400).json({
+        message: "No valid data will be provided to update.",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 // ruta que elimina un producto
