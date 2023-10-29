@@ -83,19 +83,24 @@ const CreateProduct = () => {
     formData.append("size", size);
     formData.append("color", color);
     formData.append("flavors", flavors);
-    dispatch(postProducts(formData));
-    setName("");
-    setPrice(0);
-    setCategory("");
-    setSubcategory("");
-    setDescription("");
-    setImage(null);
-    setQuantity(0);
-    setSize("");
-    setColor("");
-    setFlavors("");
-    alert("Se ha creado el producto");
-    location.reload();
+    if (image === null) {
+      alert("Error al cargar imagen");
+      location.reload();
+    } else {
+      dispatch(postProducts(formData));
+      setName("");
+      setPrice(0);
+      setCategory("");
+      setSubcategory("");
+      setDescription("");
+      setImage(null);
+      setQuantity(0);
+      setSize("");
+      setColor("");
+      setFlavors("");
+      alert("Se ha creado el producto");
+      location.reload();
+    }
   };
 
   return (

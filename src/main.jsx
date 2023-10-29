@@ -12,6 +12,7 @@ import axios from "axios";
 import Buyer from "./pages/Buyer.jsx";
 
 axios.defaults.baseURL = "https://a-solas-pky3-dev.fl0.io/";
+// axios.defaults.baseURL= "http://localhost:3000/"
 
 const router = createHashRouter([
   {
