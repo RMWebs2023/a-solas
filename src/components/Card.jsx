@@ -9,7 +9,7 @@ const Card = ({
   setTotal,
   countProducts,
   setCountProducts,
-}) => {
+}) => { 
   // función para agregar productos al carrito
   const addProduct = (product) => {
     if (allProducts.find((item) => item._id === product._id)) {
