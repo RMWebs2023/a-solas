@@ -50,10 +50,13 @@ const Card = ({
               />
               <h2 className="titulos">{product.name}</h2>
               <p className="texto_descripcion">{product.description}</p>
-              <button
+              <div className="color">
+                <p className="color-title">Color: </p>
+                <button
                 className="color-button"
                 style={{ backgroundColor: product.color }}
                 />
+              </div>
               <p className="precio">AR${product.price}</p>
               <button className="boton" onClick={() => addProduct(product)}>
                 Agregar al carrito
