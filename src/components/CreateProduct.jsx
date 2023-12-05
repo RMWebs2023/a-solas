@@ -16,8 +16,8 @@ const CreateProduct = () => {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
   const [quantity, setQuantity] = useState(0);
-  const [size, setSize] = useState("");
-  const [color, setColor] = useState("");
+  const [size, setSize] = useState([]);
+  const [color, setColor] = useState([]);
   const [flavors, setFlavors] = useState("");
 
   const inputName = (e) => {
@@ -56,18 +56,24 @@ const CreateProduct = () => {
   };
 
   const inputSize = (e) => {
+    console.log(e.target.value);
     e.preventDefault();
-    setSize(e.target.value);
+    setSize([...size, e.target.value]);
   };
 
   const inputColor = (e) => {
     e.preventDefault();
-    setColor(e.target.value);
+    setColor([...color, e.target.value]);
   };
 
   const inputFlavors = (e) => {
     e.preventDefault();
     setFlavors(e.target.value);
+  };
+
+  const deleteColor = (e) => {
+    e.preventDefault();
+    setColor(color.filter((c) => c != e.target.value));
   };
 
   const onSubmit = (e) => {
@@ -132,7 +138,7 @@ const CreateProduct = () => {
                   {/* Formulario de creación de producto */}
                   <form
                     className="adm-form_add"
-                    onSubmit={(e) => onSubmit(e)}
+                    // onSubmit={(e) => onSubmit(e)}
                     encType="multipart/form-data"
                   >
                     <label className="form-label">
@@ -202,12 +208,35 @@ const CreateProduct = () => {
                     <label className="form-label">
                       {" "}
                       Talle:
-                      <input value={size} onChange={(e) => inputSize(e)} />
+                      <select value={size} onChange={inputSize}>
+                        <option hidden>Sin talle</option>
+                        <option>S</option>
+                        <option>L</option>
+                        <option>M</option>
+                        <option>XL</option>
+                        <option>XXL</option>
+                      </select>
+                      {size}
                     </label>
                     <label className="form-label">
                       {" "}
                       Color:
-                      <input value={color} onChange={(e) => inputColor(e)} />
+                      <input
+                        type="color"
+                        value={color}
+                        onChange={(e) => inputColor(e)}
+                      />
+                      {color.length === 0
+                        ? "No seleccionaste color"
+                        : color.map((c, id) => (
+                            <button
+                              key={id}
+                              value={c}
+                              className="color-button"
+                              style={{ backgroundColor: c }}
+                              onClick={(e) => deleteColor(e)}
+                            />
+                          ))}
                     </label>
                     <label className="form-label">
                       {" "}

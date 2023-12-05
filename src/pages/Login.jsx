@@ -21,8 +21,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault;
     if (user === "yeye@asolas.com" && password === "yeye") {
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("password", JSON.stringify(password));
       alert("Inicio de sesión correcto");
-      navigate("/products");
+      navigate("/admin");
     } else {
       alert("Usuario o contraseña incorrecta");
     }

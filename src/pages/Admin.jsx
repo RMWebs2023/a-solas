@@ -6,9 +6,11 @@ import Paginated from "../components/Paginated";
 import Filter from "../components/Filter";
 import CardAdmin from "../components/CardAdmin";
 import "../style/admin.css";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // hook que llama productos de la base de datos
   const data = useSelector((state) => state.products);
 
@@ -22,6 +24,10 @@ const Admin = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 9;
   const [products, setProducts] = useState([...data].splice(0, itemsPerPage));
+  
+  // estado para login
+  const [user, setUser] = useState(localStorage.getItem("user"));
+  const [password, setPassword] = useState(localStorage.getItem("password"));
 
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {
@@ -73,32 +79,38 @@ const Admin = () => {
 
   return (
     <>
-      <div className="adm">
-        <h1 className="adm-titulo">Administrador</h1>
-        <div className="adm-cont">
-          <CreateProduct />
-        </div>
+      {user && password ? (
+        <>
+          <div className="adm">
+            <h1 className="adm-titulo">Administrador</h1>
+            <div className="adm-cont">
+              <CreateProduct />
+            </div>
 
-        <div className="filtroCard">
-          <Filter
-            name={name}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            filterCategory={filterCategory}
-            filterSubcategory={filterSubcategory}
-          />
-          <div className="prod-card">
-            <CardAdmin products={products} />
+            <div className="filtroCard">
+              <Filter
+                name={name}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                filterCategory={filterCategory}
+                filterSubcategory={filterSubcategory}
+              />
+              <div className="prod-card">
+                <CardAdmin products={products} />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <Paginated
-        dataPage={dataPage}
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        setProducts={setProducts}
-        setCurrentPage={setCurrentPage}
-      />
+          <Paginated
+            dataPage={dataPage}
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            setProducts={setProducts}
+            setCurrentPage={setCurrentPage}
+          />
+        </>
+      ) : (
+        navigate("/login")
+      )}
     </>
   );
 };

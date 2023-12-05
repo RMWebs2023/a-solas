@@ -155,7 +155,12 @@ const Cart = ({
             )}
             <div>Total de productos: {countProducts}</div>
             <div>${total}</div>
-            <button onClick={() => navigate("/buyer")}>Ir a pagar</button>
+            <button
+              disabled={cart.length === 0}
+              onClick={() => navigate("/buyer")}
+            >
+              Ir a pagar
+            </button>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
