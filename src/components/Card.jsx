@@ -50,10 +50,10 @@ const Card = ({
               />
               <h2 className="titulos">{product.name}</h2>
               <p className="texto_descripcion">{product.description}</p>
+              <p className="precio">AR${product.price}</p>
               <button className="boton" onClick={() => addProduct(product)}>
                 Agregar al carrito
               </button>
-              <span className="precio">AR${product.price}</span>
             </div>
           </div>
         ))}

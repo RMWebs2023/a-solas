@@ -1,7 +1,7 @@
 .mb-3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-color: #d0006fd7;
-  max-height: 500px;
+  height: 90vh;
   width: 100%;
   position: sticky !important;
   top: 65px;
@@ -28,8 +28,10 @@
   border-radius: 12px;
   width: 100%;
   display: grid !important;
-  grid-template-columns: 80% 20% !important;
+  grid-template-columns: 100% !important;
   justify-content: center !important;
+  color: white;
+  text-transform: uppercase;
 }
 
 .offcanvas-title {
@@ -47,6 +49,8 @@
   font-family: "Jost", sans-serif;
   font-size: 18px;
   text-align: center;
+  height: 80vh;
+  overflow-y: scroll;
 }
 
 .d-flex {
@@ -78,6 +82,10 @@ a:hover {
 .container-fluid {
   position: relative;
   top: 8px;
+}
+
+.dropdown {
+  padding: 5px 0px !important;
 }
 
 
