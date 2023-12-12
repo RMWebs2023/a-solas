@@ -137,7 +137,7 @@ const Cart = ({
                         </div>
                       </div>
                       <div className="carro-1ra_subtotal">
-                        <span>Subtotal: {product.subTotal} </span>
+                        <span>Subtotal: ${product.subTotal} </span>
                         <button
                           className="boton-counter_subtotal"
                           onClick={() => deleteProduct(product)}
@@ -153,14 +153,18 @@ const Cart = ({
             ) : (
               <p>El carrito está vacío</p>
             )}
-            <div>Total de productos: {countProducts}</div>
-            <div>${total}</div>
-            <button
-              disabled={cart.length === 0}
-              onClick={() => navigate("/buyer")}
-            >
-              Ir a pagar
-            </button>
+            <div className="carro-2da-parte">
+              <div>Total de productos: {countProducts}</div>
+              <div>${total}</div>
+              <button
+                className="boton"
+                disabled={cart.length === 0}
+                onClick={() => navigate("/buyer")}
+              >
+                Ir a pagar
+              </button>
+            </div>
+            
           </div>
         </Offcanvas.Body>
       </Offcanvas>

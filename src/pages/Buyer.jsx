@@ -35,50 +35,50 @@ const Buyer = () => {
             <div className="comprador-ppal">
               <div className="identidad">
                 <label>Nombre: </label>
-                <input value="Nombre"></input>
+                <input placeholder="Nombre"></input>
               </div>
               <div className="identidad">
                 <label>Apellido: </label>
-                <input value="Apellido"></input>
+                <input placeholder="Apellido"></input>
               </div>
               <div className="identidad">
                 <label>Documento: </label>
                 <select id="Tipo" name="Tipo">
-                  <option value="DNI">DNI</option>
-                  <option value="Pasaporte">Pasaporte</option>
+                  <option placeholder="DNI">DNI</option>
+                  <option placeholder="Pasaporte">Pasaporte</option>
                 </select>
-                <input value="N° de ID"></input>
+                <input placeholder="N° de ID"></input>
               </div>
             </div>
   
             <div className="comprador-contacto">
               <div className="identidad">
                 <label>Correo electrónico: </label>
-                <input value="Email"></input>
+                <input placeholder="Email"></input>
               </div>
               <div className="identidad">
                 <label>Teléfono: </label>
-                <input value="Codigo de area + N° sin 0 ni 15" />
+                <input placeholder="Codigo de area + N° sin 0 ni 15" />
               </div>
             </div>
 
             <div className="comprador-adress">
               <label>Calle y altura: </label>
-              <input value="Domicilio de entrega, Altura y N° de Dpto o casa"></input>
+              <input placeholder="Domicilio de entrega, Altura y N° de Dpto o casa"></input>
             </div>
             
             <div className="comprador-ubi">
               <div>
                 <label>Provincia: </label>
-                <input value="Provincia"></input>
+                <input placeholder="Provincia"></input>
               </div>
               <div>
                 <label>Localidad: </label>
-                <input value="Localidad"></input>
+                <input placeholder="Localidad"></input>
               </div>
               <div>
                 <label>Código Postal: </label>
-                <input value="CP"></input>
+                <input placeholder="CP"></input>
               </div>
             </div>
             
