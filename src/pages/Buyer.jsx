@@ -31,7 +31,9 @@ const Buyer = () => {
       <form className="buyer-landing">
         {steps === "firstStep" ? (
           <div className="buyer-form">
-            <h1>Datos del comprador</h1>
+
+            <h1 >Datos del comprador</h1>
+
             <div className="comprador-ppal">
               <div className="identidad">
                 <label>Nombre: </label>
@@ -58,7 +60,7 @@ const Buyer = () => {
               </div>
               <div className="identidad">
                 <label>Teléfono: </label>
-                <input placeholder="Codigo de area + N° sin 0 ni 15" />
+                <input className="telefono" placeholder="( Cod ) + N° sin 0 ni 15" />
               </div>
             </div>
 
@@ -84,10 +86,10 @@ const Buyer = () => {
             
             <div className="comprador-final">
               <label>Comentarios: </label>
-              <textarea value="Dpto x - Llamar al X al llegar a la puerta - Entre calles x y x"/>
+              <textarea placeholder="Dpto x - Llamar al X al llegar a la puerta - Entre calles x y x"/>
             </div>
             
-            <button onClick={() => setSteps("secondStep")}>Siguiente</button>
+            <button className="boton" onClick={() => setSteps("secondStep")}>Siguiente</button>
           </div>
         ) : null}
         {steps === "secondStep" ? (
@@ -131,5 +133,6 @@ const Buyer = () => {
     </div>
   );
 };
+
 
 export default Buyer;

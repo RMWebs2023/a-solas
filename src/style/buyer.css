@@ -5,16 +5,44 @@
     display: grid;
     grid-template-columns: 80% 20%;
     grid-template-rows: 1fr;
+    border-color: #d0006f9f !important;
 }
 
 .buyer-form {
-    background-color: #d0006f9f;
+    font-family: "Jost", sans-serif;
+    background-color: transparent;
     color: white;
     margin: 10px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    padding: 10px;
+}
+
+
+input {
+    border-radius: 8px;
+}
+
+select {
+    border-radius: 8px;
+}
+
+textarea {
+    border-radius: 8px;
+}
+
+.telefono {
+    width: 300px;
+}
+
+h1 {
+    font-family: "Medula One", cursive;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: white;
 }
 
 .comprador-ppal {
@@ -53,4 +81,8 @@
     grid-template-columns: 20% 80%;
     grid-template-rows: 1fr;
 }
+
+
+
+
 
