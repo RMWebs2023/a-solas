@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
+import "../style/buyer.css"
 
 initMercadoPago("TEST-c642f671-50cd-4061-9a9d-629c0cf079b4");
 
@@ -26,42 +27,81 @@ const Buyer = () => {
   };
 
   return (
-    <>
-      <form>
+    <div className="buyer-body">
+      <form className="buyer-landing">
         {steps === "firstStep" ? (
-          <div>
+          <div className="buyer-form">
             <h1>Datos del comprador</h1>
-            <label>Nombre</label>
-            <input></input>
-            <label>Apellido</label>
-            <input></input>
-            <label>Correo electrónico</label>
-            <input></input>
-            <label>Teléfono</label>
-            <input></input>
-            <label>Calle y altura</label>
-            <input></input>
-            <label>Provincia</label>
-            <input></input>
-            <label>Localidad</label>
-            <input></input>
-            <label>Código Postal</label>
-            <input></input>
-            <label>Comentarios</label>
-            <textarea />
+            <div className="comprador-ppal">
+              <div className="identidad">
+                <label>Nombre: </label>
+                <input placeholder="Nombre"></input>
+              </div>
+              <div className="identidad">
+                <label>Apellido: </label>
+                <input placeholder="Apellido"></input>
+              </div>
+              <div className="identidad">
+                <label>Documento: </label>
+                <select id="Tipo" name="Tipo">
+                  <option placeholder="DNI">DNI</option>
+                  <option placeholder="Pasaporte">Pasaporte</option>
+                </select>
+                <input placeholder="N° de ID"></input>
+              </div>
+            </div>
+  
+            <div className="comprador-contacto">
+              <div className="identidad">
+                <label>Correo electrónico: </label>
+                <input placeholder="Email"></input>
+              </div>
+              <div className="identidad">
+                <label>Teléfono: </label>
+                <input placeholder="Codigo de area + N° sin 0 ni 15" />
+              </div>
+            </div>
+
+            <div className="comprador-adress">
+              <label>Calle y altura: </label>
+              <input placeholder="Domicilio de entrega, Altura y N° de Dpto o casa"></input>
+            </div>
+            
+            <div className="comprador-ubi">
+              <div>
+                <label>Provincia: </label>
+                <input placeholder="Provincia"></input>
+              </div>
+              <div>
+                <label>Localidad: </label>
+                <input placeholder="Localidad"></input>
+              </div>
+              <div>
+                <label>Código Postal: </label>
+                <input placeholder="CP"></input>
+              </div>
+            </div>
+            
+            <div className="comprador-final">
+              <label>Comentarios: </label>
+              <textarea value="Dpto x - Llamar al X al llegar a la puerta - Entre calles x y x"/>
+            </div>
+            
             <button onClick={() => setSteps("secondStep")}>Siguiente</button>
           </div>
         ) : null}
         {steps === "secondStep" ? (
           <div>
             <h1>Datos de facturación</h1>
-            <label>DNI o CUIT</label>
-            <input></input>
-            <label>Condición frente a IVA</label>
-            <input></input>
-            <label>Domicilio</label>
-            <input></input>
-            <textarea />
+            <div>
+              <label>DNI o CUIT</label>
+              <input></input>
+              <label>Condición frente a IVA</label>
+              <input></input>
+              <label>Domicilio</label>
+              <input></input>
+              <textarea />
+            </div>
             <button onClick={() => setSteps("firstStep")}>Anterior</button>
             <button
               onClick={() => {
@@ -85,7 +125,10 @@ const Buyer = () => {
           </div>
         ) : null}
       </form>
-    </>
+      <div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto voluptas perspiciatis neque ea nostrum, deleniti minus beatae culpa accusantium nesciunt. Recusandae eligendi eum, nihil distinctio dignissimos nisi aliquam ad necessitatibus?</p>
+      </div>
+    </div>
   );
 };
 

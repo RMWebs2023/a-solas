@@ -1,0 +1,56 @@
+.buyer-body {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+}
+
+.buyer-form {
+    background-color: #d0006f9f;
+    color: white;
+    margin: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.comprador-ppal {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 1fr;
+}
+
+.identidad {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0px 5px;
+}
+
+.comprador-contacto {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+}
+
+.comprador-adress {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1fr;
+}
+
+.comprador-ubi {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 1fr;
+}
+
+.comprador-final {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1fr;
+}
+

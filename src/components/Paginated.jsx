@@ -1,5 +1,7 @@
 import React from "react";
 import "../style/home.css";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 const Paginated = ({
   dataPage,
@@ -30,11 +32,11 @@ const Paginated = ({
   return (
     <div className="paginado">
       <button className="paginado_boton" onClick={prevHandler}>
-        Anterior
+        <FaArrowLeft />
       </button>
       <div className="paginado_numero">{currentPage + 1}</div>
       <button className="paginado_boton" onClick={nextHandler}>
-        Siguiente
+        <FaArrowRight />
       </button>
     </div>
   );

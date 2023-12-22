@@ -1,7 +1,7 @@
 .mb-3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   background-color: #d0006fd7;
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   position: sticky !important;
   top: 65px;
@@ -27,7 +27,7 @@
   background-color: #d0006fd7;
   border-radius: 12px;
   width: 100%;
-  display: grid !important;
+  display: flex !important;
   grid-template-columns: 100% !important;
   justify-content: center !important;
   color: white;
@@ -49,7 +49,7 @@
   font-family: "Jost", sans-serif;
   font-size: 18px;
   text-align: center;
-  height: 80vh;
+  height: 90%;
   overflow-y: scroll;
 }
 
@@ -69,6 +69,11 @@
   --bs-dropdown-link-active-bg: #d0006e !important;
   --bs-dropdown-link-hover-bg: #fa97cc !important;
   --bs-dropdown-link-hover-color: white !important;
+}
+
+.dropdown-menu.show {
+  width: 95%;
+  padding: 10px;
 }
 
 .itemFiltro {
