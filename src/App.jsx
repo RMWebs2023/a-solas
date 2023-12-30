@@ -4,6 +4,7 @@ import Buyer from "./pages/Buyer";
 import Home from "./pages/Home.jsx";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
+import SendEmail from "./components/SendEmail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/buyer" element={<Buyer />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/email" element={<SendEmail />} />
       </Routes>
     </BrowserRouter>
   );
