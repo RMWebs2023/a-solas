@@ -94,6 +94,7 @@ const Cart = ({
         className="cartButton"
       >
         <img src={carro} alt="" className="carro_icon" />
+        <span class="numerito"> {countProducts} </span>
       </Button>
       <Offcanvas show={show} onHide={handleClose} placement="end">
         <Offcanvas.Header closeButton>

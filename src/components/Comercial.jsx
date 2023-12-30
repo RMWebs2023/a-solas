@@ -14,7 +14,7 @@ const Comercial = () => {
             <img src={camionEnvios} alt="" />
             <h3>Envios a todo el pais</h3>
           </div>
-          <p>Envios con X empresa - a cargo del comprador</p>
+          <p>Envios con a cargo del comprador</p>
         </div>
 
         <div className="comercial">
