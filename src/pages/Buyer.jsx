@@ -93,42 +93,73 @@ const Buyer = () => {
           </div>
         ) : null}
         {steps === "secondStep" ? (
-          <div>
+          <div className="buyer-form">
+            
             <h1>Datos de facturación</h1>
+            
             <div>
-              <label>DNI o CUIT</label>
-              <input></input>
-              <label>Condición frente a IVA</label>
-              <input></input>
-              <label>Domicilio</label>
-              <input></input>
-              <textarea />
+
+              <div className="empresa">
+                <div className="condicion-iva">
+                  <label>Condicion frente al IVA: </label>
+                  <select id="Tipo" name="Tipo">
+                    <option placeholder="Consumidor final">Consumidor final</option>
+                    <option placeholder="Resp. Inscripto">Resp. Inscripto</option>
+                    <option placeholder="Monotributista">Monotributista</option>
+                    <option placeholder="Exento">Exento</option>
+                  </select>
+                </div>
+
+                <div className="identidad">
+                  <label>CUIT o CUIL: </label>
+                  <select id="Tipo" name="Tipo">
+                    <option placeholder="DNI">DNI</option>
+                    <option placeholder="CUIT">CUIT</option>
+                    <option placeholder="CUIL">CUIL</option>
+                  </select>
+                  <input placeholder="N° de ID"></input>
+                </div>
+              </div>
+            
+              <div className="RazonSocial">
+                <label>Razon social: </label>
+                <input placeholder="Razon Social"></input>
+              </div>
+
+              <div className="comprador-adress">
+                <label>Calle y altura: </label>
+                <input placeholder="Domicilio"></input>
+              </div>
+
             </div>
-            <button onClick={() => setSteps("firstStep")}>Anterior</button>
-            <button
-              onClick={() => {
-                setSteps("thirdStep");
-                createPreference();
-              }}
-            >
-              Siguiente
-            </button>
+
+            <div className="botones">
+              <button className="boton" onClick={() => setSteps("firstStep")}>Anterior</button>
+              <button className="boton" onClick={() => {setSteps("thirdStep");createPreference();}}>Siguiente</button>
+            </div>
           </div>
         ) : null}
         {steps === "thirdStep" ? (
-          <div>
+          <div className="buyer-form">
+
             <h1>Medios de pago</h1>
-            <h3>Transferencia</h3>
-            <p>Datos de la transferencia</p>
+
+            <div>
+              <h2>Transferencia</h2>
+              <p>Datos de la transferencia</p>
+            </div>
             <br />
-            <h3>MercadoPago</h3>
-            <Wallet initialization={{ preferenceId }} />
-            <button onClick={() => setSteps("secondStep")}>Anterior</button>
+            <div>
+              <h2>MercadoPago</h2>
+              <Wallet initialization={{ preferenceId }} />
+            </div>
+            
+            <button className="boton" onClick={() => setSteps("secondStep")}>Anterior</button>
           </div>
         ) : null}
       </form>
       <div>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto voluptas perspiciatis neque ea nostrum, deleniti minus beatae culpa accusantium nesciunt. Recusandae eligendi eum, nihil distinctio dignissimos nisi aliquam ad necessitatibus?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id repellat tenetur iste pariatur modi voluptatem culpa, voluptatum exercitationem quibusdam fugiat aliquam at numquam autem eaque! Explicabo pariatur consectetur quas ad?</p>
       </div>
     </div>
   );
