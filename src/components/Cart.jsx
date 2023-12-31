@@ -94,10 +94,10 @@ const Cart = ({
         className="cartButton"
       >
         <img src={carro} alt="" className="carro_icon" />
-        <span class="numerito"> {countProducts} </span>
+        <span className="numerito"> {countProducts} </span>
       </Button>
       <Offcanvas show={show} onHide={handleClose} placement="end">
-        <Offcanvas.Header closeButton>
+        <Offcanvas.Header closeButton className="titulo-cart">
           <Offcanvas.Title>Tu carrito</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
@@ -162,7 +162,7 @@ const Cart = ({
                 disabled={cart.length === 0}
                 onClick={() => navigate("/buyer")}
               >
-                Ir a pagar
+                Finalizar compra
               </button>
             </div>
             

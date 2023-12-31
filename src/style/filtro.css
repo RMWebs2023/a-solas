@@ -28,7 +28,6 @@
   border-radius: 12px;
   width: 100%;
   display: flex !important;
-  grid-template-columns: 100% !important;
   justify-content: center !important;
   color: white;
   text-transform: uppercase;
