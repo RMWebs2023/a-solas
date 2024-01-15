@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import logo_blanco from "../imagenes/logo_blanco.png";
 import "../style/landing.css";
+import "../style/login.css"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,22 +33,34 @@ const Login = () => {
 
   return (
     <>
-      <img src={logo_blanco} alt="Logo" className="logo_landing" />
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Usuario"
-          value={user}
-          onChange={handleUser}
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={handlePassword}
-        />
-        <button type="submit">Iniciar sesión</button>
-      </form>
+      <div className="body">
+        <div class="background">
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+
+          <img src={logo_blanco} alt="Logo" className="logo_login" />
+
+          <h3>Iniciar sesión</h3>
+
+          <input
+            type="email"
+            placeholder="Usuario"
+            value={user}
+            onChange={handleUser}
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={handlePassword}
+          />
+          <button type="submit" className="boton" >Login</button>
+        </form>
+
+      </div>
     </>
   );
 };
