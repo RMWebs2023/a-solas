@@ -39,7 +39,7 @@ const Login = () => {
           <div class="shape"></div>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form className="form-login" onSubmit={handleSubmit}>
 
           <img src={logo_blanco} alt="Logo" className="logo_login" />
 
