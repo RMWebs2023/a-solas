@@ -147,6 +147,10 @@ const Buyer = () => {
             <div>
               <h2>Transferencia</h2>
               <p>Datos de la transferencia</p>
+              <p>Banco X</p>
+              <p>CBU: 123456789132456789</p>
+              <p>Alias: test.configuracion</p>
+              <p>La compra sera confirmada a los datos de contactos provistos al recibir el comprobante de transferencia. <br /> Los cuales deben ser enviados a ventas@asolas.com.ar o escribiendo al siguiente numero de wsp.</p>
             </div>
             <br />
             <div>
