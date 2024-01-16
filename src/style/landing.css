@@ -3,6 +3,9 @@
   height: 100vh;
   width: 100vw;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title_landing {
@@ -26,6 +29,10 @@
   font-weight: 500;
   font-family: "Jost", sans-serif;
   text-align: center;
+}
+
+.flechita {
+  font-size: 50px;
 }
 
 .logo_landing {
@@ -70,6 +77,7 @@
     display: grid;
     grid-template-columns: 100;
     grid-template-rows: 40 10 25 25;
+    place-items: center;
   }
 
   .title_landing {

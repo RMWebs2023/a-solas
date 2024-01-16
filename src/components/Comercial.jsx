@@ -28,12 +28,12 @@ const Comercial = () => {
         <div className="comercial">
           <div className="comercial_card">
             <div>
-              <a href="https://api.whatsapp.com/send?phone=5492615618566" className="url_wsp" target="_blank">
+              <a href="https://api.whatsapp.com/send?phone=5492612708535" className="url_wsp" target="_blank">
               <img src={wspNegro} alt="" /></a>
             </div>
             <h3>Escribenos tu consulta</h3>
           </div>
-          <p><a href="https://api.whatsapp.com/send?phone=5492615618566" className="url_wsp" target="_blank">+54 9 261 561-8566</a></p>
+          <p><a href="https://api.whatsapp.com/send?phone=5492612708535" className="url_wsp" target="_blank">+54 9 261 270-8535</a></p>
         </div>
 
       </div>

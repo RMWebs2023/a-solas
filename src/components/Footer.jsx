@@ -10,13 +10,13 @@ const Footer = () => {
     <footer>
       <div className="asolas">
         <div className="info">
-          <h1 className="title_footer">a solas</h1>
+          <h1 className="title_footer">A SolaS</h1>
           <h2 className="subtitle_footer">Sexshop</h2>
           <span className="whatsapp">
             <img src={wsp} alt="logo wsp" className="wsp-f" />
             Whatsapp:{" "}
-            <a href="https://api.whatsapp.com/send?phone=5492615618566" className="url_wsp" >
-              +54 9 261 561-8566
+            <a href="https://api.whatsapp.com/send?phone=5492612708535" className="url_wsp" >
+            +54 9 261 270-8535
             </a>
           </span>
         </div>

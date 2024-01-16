@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container showcase-inner">
         <img src={logo_blanco} alt="Logo" className="logo" />
         <div>
-          <h1 className="title">a solas</h1>
+          <h1 className="title">A SolaS</h1>
           <h2 className="subtitle">Sexshop</h2>
           <p className="slogan">Te animas a jugar!?</p>
         </div>
