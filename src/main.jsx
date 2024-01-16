@@ -9,10 +9,9 @@ import Home from "./pages/Home.jsx";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login.jsx";
 import Buyer from "./pages/Buyer.jsx";
-import SendEmail from "./components/SendEmail.jsx";
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://a-solas-dev-hdkm.1.us-1.fl0.io";
+// axios.defaults.baseURL = "https://a-solas.onrender.com/";
 axios.defaults.baseURL = "http://localhost:3000/";
 
 const router = createHashRouter([
@@ -35,10 +34,6 @@ const router = createHashRouter([
   {
     path: "/buyer",
     element: <Buyer />,
-  },
-  {
-    path: "/email",
-    element: <SendEmail />,
   },
 ]);
 
