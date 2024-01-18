@@ -46,6 +46,7 @@ const Login = () => {
           <h3>Iniciar sesión</h3>
 
           <input
+            className="login-imput"
             type="email"
             placeholder="Usuario"
             value={user}

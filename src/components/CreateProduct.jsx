@@ -145,6 +145,7 @@ const CreateProduct = () => {
                       {" "}
                       Nombre:
                       <input
+                        className="admin-imput"
                         placeholder="Por ejemplo: vibrador de silicona..."
                         value={name}
                         onChange={(e) => inputName(e)}
@@ -154,6 +155,7 @@ const CreateProduct = () => {
                       {" "}
                       Precio:
                       <input
+                        className="admin-imput"
                         type="number"
                         value={price}
                         onChange={(e) => inputPrice(e)}
@@ -163,6 +165,7 @@ const CreateProduct = () => {
                       {" "}
                       Categoría:
                       <input
+                        className="admin-imput"
                         placeholder="Por ejemplo: Vibrador"
                         value={category}
                         onChange={(e) => inputCategory(e)}
@@ -172,6 +175,7 @@ const CreateProduct = () => {
                       {" "}
                       Subcategoría:
                       <input
+                        className="admin-imput"
                         placeholder="Por ejemplo: silicona"
                         value={subcategory}
                         onChange={(e) => inputSubcategory(e)}
@@ -181,6 +185,7 @@ const CreateProduct = () => {
                       {" "}
                       Descripción:
                       <input
+                        className="admin-imput"
                         placeholder="Descripcion del producto"
                         value={description}
                         onChange={(e) => inputDescription(e)}
@@ -190,6 +195,7 @@ const CreateProduct = () => {
                       {" "}
                       Imagen:
                       <input
+                        className="admin-imput"
                         type="file"
                         accept="image/*"
                         placeholder="Insertar imagen del producto"
@@ -200,6 +206,7 @@ const CreateProduct = () => {
                       {" "}
                       Cantidad:
                       <input
+                        className="admin-imput"
                         type="number"
                         value={quantity}
                         onChange={(e) => inputQuantity(e)}
@@ -222,6 +229,7 @@ const CreateProduct = () => {
                       {" "}
                       Color:
                       <input
+                        className="admin-imput"
                         type="color"
                         value={color}
                         onChange={(e) => inputColor(e)}
@@ -242,6 +250,7 @@ const CreateProduct = () => {
                       {" "}
                       Sabor:
                       <input
+                        className="admin-imput"
                         value={flavors}
                         onChange={(e) => inputFlavors(e)}
                       />
