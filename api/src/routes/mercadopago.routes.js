@@ -20,7 +20,7 @@ router.post("/create_preference", (req, res) => {
       },
     ],
     back_urls: {
-      success: "https://rmwebs2023.github.io/a-solas/#/home",
+      success: "https://api.whatsapp.com/send?phone=5492612708535",
       failure: "https://rmwebs2023.github.io/a-solas/#/home",
       pending: "",
     },
