@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/action";
 import Header from "../components/Header";
@@ -13,6 +13,12 @@ import "../style/home.css";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const targetRef = useRef(null);
+
+  const scrollToTarget = () => {
+    targetRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   // hook que llama productos de la base de datos
   const data = useSelector((state) => state.products);
 
@@ -107,8 +113,10 @@ const Home = () => {
           handleSubmit={handleSubmit}
           filterCategory={filterCategory}
           filterSubcategory={filterSubcategory}
+          scrollToTarget={scrollToTarget}
         />
         <Card
+          targetRef={targetRef}
           products={products}
           allProducts={allProducts}
           setAllProducts={setAllProducts}

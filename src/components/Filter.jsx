@@ -14,6 +14,7 @@ const Filter = ({
   handleSubmit,
   filterCategory,
   filterSubcategory,
+  scrollToTarget,
 }) => {
   // hook que llama productos de la bdd
   const data = useSelector((state) => state.products);
@@ -72,7 +73,10 @@ const Filter = ({
                 <Nav.Link
                   className="itemFiltro"
                   key={id}
-                  onClick={() => filterCategory(category)}
+                  onClick={() => {
+                    filterCategory(category);
+                    scrollToTarget();
+                  }}
                 >
                   {category}
                 </Nav.Link>

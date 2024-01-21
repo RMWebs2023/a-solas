@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 import "../style/cards.css";
 
 const Card = ({
@@ -9,6 +10,7 @@ const Card = ({
   setTotal,
   countProducts,
   setCountProducts,
+  targetRef,
 }) => {
   // función para agregar productos al carrito
   const addProduct = (product) => {
@@ -35,11 +37,18 @@ const Card = ({
     setAllProducts([...allProducts, product]);
     const cart = allProducts;
     localStorage.setItem("cart", JSON.stringify(cart));
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Se agregó tu producto al carrito",
+      showConfirmButton: false,
+      timer: 1000,
+    });
   };
 
   return (
     <>
-      <div className="cards">
+      <div className="cards" ref={targetRef}>
         {products.map((product, id) => (
           <div key={id} className="cards_productos" id="producto">
             <div className="container_cards wrapper">
@@ -53,12 +62,17 @@ const Card = ({
               <div className="color">
                 <p className="color-title">Color: </p>
                 <button
-                className="color-button"
-                style={{ backgroundColor: product.color }}
+                  className="color-button"
+                  style={{ backgroundColor: product.color }}
                 />
               </div>
               <p className="precio">AR${product.price}</p>
-              <button className="boton" onClick={() => addProduct(product)}>
+              <button
+                className="boton"
+                onClick={() => {
+                  addProduct(product);
+                }}
+              >
                 Agregar al carrito
               </button>
             </div>
