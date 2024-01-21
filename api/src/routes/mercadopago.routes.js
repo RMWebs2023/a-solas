@@ -11,17 +11,36 @@ mercadopago.configure({
 
 // ruta para recibir información de los productos a pagar
 router.post("/create_preference", (req, res) => {
+  let itemDescription = req.body.description;
+  let itemPrice = Number(req.body.price);
+  let itemQuantity = Number(req.body.quantity);
+
+  let message = `Hola A Solas,
+
+Te paso el resumen de mi pedido:
+  
+ Detalles de la compra:
+ - Productos: ${itemDescription}
+ - Cantidad total de productos: ${itemQuantity}
+ - Precio final: $${itemPrice}
+  
+ Espero tu respuesta para confirmar y organizar el retiro/envío de mi pedido`;
+
+  let whatsappURL = `https://wa.me/5493515061506/?text=${encodeURIComponent(
+    message
+  )}`;
+
   let preference = {
     items: [
       {
-        title: req.body.description,
-        unit_price: Number(req.body.price),
-        quantity: Number(req.body.quantity),
+        title: itemDescription,
+        unit_price: itemPrice,
+        quantity: itemQuantity,
       },
     ],
     back_urls: {
-      success: "https://api.whatsapp.com/send?phone=5492612708535",
-      failure: "https://rmwebs2023.github.io/a-solas/#/home",
+      success: whatsappURL,
+      failure: "https://asolas.com.ar",
       pending: "",
     },
     auto_return: "approved",

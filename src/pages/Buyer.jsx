@@ -89,7 +89,8 @@ const Buyer = () => {
               <textarea placeholder="Dpto x - Llamar al X al llegar a la puerta - Entre calles x y x"/>
             </div>
             
-            <button className="boton" onClick={() => setSteps("secondStep")}>Siguiente</button>
+            <button className="boton" onClick={() => {setSteps("secondStep")
+          createPreference();}}>Siguiente</button>
           </div>
         ) : null}
         {steps === "secondStep" ? (
@@ -135,7 +136,7 @@ const Buyer = () => {
 
             <div className="botones">
               <button className="boton" onClick={() => setSteps("firstStep")}>Anterior</button>
-              <button className="boton" onClick={() => {setSteps("thirdStep");createPreference();}}>Siguiente</button>
+              <button className="boton" onClick={() => {setSteps("thirdStep");}}>Siguiente</button>
             </div>
           </div>
         ) : null}
@@ -156,6 +157,7 @@ const Buyer = () => {
             <div>
               <h2>MercadoPago</h2>
               <Wallet initialization={{ preferenceId }} />
+             
             </div>
             
             <button className="boton" onClick={() => setSteps("secondStep")}>Anterior</button>
