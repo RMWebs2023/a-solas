@@ -26,7 +26,7 @@ Te paso el resumen de mi pedido:
   
  Espero tu respuesta para confirmar y organizar el retiro/envío de mi pedido`;
 
-  let whatsappURL = `https://wa.me/5493515061506/?text=${encodeURIComponent(
+  let whatsappURL = `https://wa.me/5492612708535/?text=${encodeURIComponent(
     message
   )}`;
 
