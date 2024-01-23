@@ -15,7 +15,7 @@ const Footer = () => {
           <span className="whatsapp">
             <img src={wsp} alt="logo wsp" className="wsp-f" />
             Whatsapp:{" "}
-            <a href="https://api.whatsapp.com/send?phone=5492612708535" className="url_wsp" >
+            <a href="https://api.whatsapp.com/send?phone=5492612708535" className="url_wsp" target="_blank">
             +54 9 261 270-8535
             </a>
           </span>
@@ -27,7 +27,7 @@ const Footer = () => {
           <a href="https://www.instagram.com/asolassexshop/">
             <img src={insta} alt="logo instagram" className="insta" />
           </a>
-          <a href="https://api.whatsapp.com/send?phone=5492615618566">
+          <a href="https://api.whatsapp.com/send?phone=5492612708535" target="_blank">
             <img src={wsp} alt="logo wsp" className="wsp_2" />
           </a>
           <a href="">
