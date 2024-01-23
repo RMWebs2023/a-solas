@@ -86,7 +86,12 @@ const Filter = ({
             {/* Todos los botones con subcategorías */}
             {allCategoriesWithSubcategory.map((category, id) => (
               <NavDropdown key={id} title={category}>
-                <Nav.Link onClick={() => filterSubcategory("Todas", category)}>
+                <Nav.Link
+                  onClick={() => {
+                    scrollToTarget();
+                    filterSubcategory("Todas", category);
+                  }}
+                >
                   Todas
                 </Nav.Link>
 
@@ -101,7 +106,10 @@ const Filter = ({
                   .map((subcategory, subId) => (
                     <Nav.Link
                       key={subId}
-                      onClick={() => filterSubcategory(subcategory, category)}
+                      onClick={() => {
+                        scrollToTarget();
+                        filterSubcategory(subcategory, category);
+                      }}
                     >
                       {subcategory}
                     </Nav.Link>

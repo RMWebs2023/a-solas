@@ -29,10 +29,10 @@ const Cart = ({
   // función para incrementar la cantidad del producto
   const addQuantity = (product) => {
     const productFilter = allProducts.find((item) => item._id === product._id);
-    if (productFilter) {
+    if (productFilter && productFilter.quantity > productFilter.quanty) {
       setAllProducts(
         allProducts.map((item) =>
-          item._id === product._id
+          item._id === product._id 
             ? {
                 ...product,
                 quanty: productFilter.quanty + 1,

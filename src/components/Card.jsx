@@ -14,7 +14,8 @@ const Card = ({
 }) => {
   // función para agregar productos al carrito
   const addProduct = (product) => {
-    if (allProducts.find((item) => item._id === product._id)) {
+    const productFilter = allProducts.find((item) => item._id === product._id);
+    if (productFilter && productFilter.quantity > productFilter.quanty) {
       const products = allProducts.map((item) =>
         item._id === product._id
           ? {
@@ -68,6 +69,7 @@ const Card = ({
               </div>
               <p className="precio">AR${product.price}</p>
               <button
+                disabled={!product.quantity}
                 className="boton"
                 onClick={() => {
                   addProduct(product);
@@ -75,6 +77,7 @@ const Card = ({
               >
                 Agregar al carrito
               </button>
+              {product.quantity < 1 ? <>"Sin stock"</> : <></>}
             </div>
           </div>
         ))}
