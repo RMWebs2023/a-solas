@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import carro from "../imagenes/carro.png";
 import tachito from "../imagenes/tachito_blanco.png";
+import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import "../style/cart.css";
 
@@ -106,6 +107,7 @@ const Cart = ({
         price: total,
         quantity: countProducts,
       });
+      console.log(response.data.id);
       setPreferenceId(response.data.id);
     } catch (error) {
       console.log(error);
@@ -117,8 +119,8 @@ const Cart = ({
       <Button
         variant="primary"
         onClick={() => {
-          handleShow();
           createPreference();
+          handleShow();
         }}
         className="cartButton"
       >
@@ -193,7 +195,13 @@ const Cart = ({
               >
                 Finalizar compra
               </button> */}
-              <Wallet initialization={{ preferenceId }} />
+              {preferenceId ? (
+                <Wallet initialization={{ preferenceId }} />
+              ) : (
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              )}
             </div>
           </div>
         </Offcanvas.Body>
