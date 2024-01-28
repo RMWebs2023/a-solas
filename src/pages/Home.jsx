@@ -8,6 +8,8 @@ import Filter from "../components/Filter";
 import Comercial from "../components/Comercial";
 import Footer from "../components/Footer";
 import Paginated from "../components/Paginated";
+import logo_blanco from "../imagenes/logo-blanco.png"
+import Swal from "sweetalert2";
 import "../style/header.css";
 import "../style/home.css";
 
@@ -25,6 +27,14 @@ const Home = () => {
   // efecto que llama a los productos al iniciar la página
   useEffect(() => {
     dispatch(getProducts());
+    // alert de promoción
+    Swal.fire({
+      imageUrl: logo_blanco,
+      imageHeight: 150,
+      title: "SAN VALENTÍN",
+      text: 'Ingresa el código "SANVALENTIN" antes de terminar tu compra y obtené un 20% OFF',
+      showConfirmButton: true,
+    });
   }, []);
 
   // estados para filtrado y paginado

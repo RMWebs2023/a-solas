@@ -1,26 +1,159 @@
 .offcanvas {
-    --bs-offcanvas-width: 600px !important;
+  --bs-offcanvas-width: 600px !important;
 }
 
 .titulo-cart {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-between !important;
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between !important;
 }
 
 .cartButton {
-    background-color: #d0006e;
-    width: 56px;
-    height: 40px;
-    padding: 4px 12px;
-    margin: 0px !important;
-    filter: drop-shadow(2px 2px 4px black);
+  background-color: #d0006e;
+  width: 56px;
+  height: 40px;
+  padding: 4px 12px;
+  margin: 0px !important;
+  filter: drop-shadow(2px 2px 4px black);
 }
 
 .numerito {
+  background-color: white;
+  color: #d0006e;
+  padding: 0.15rem 0.25rem;
+  border-radius: 15px;
+  font-family: "Jost", sans-serif;
+  filter: drop-shadow(2px 2px 4px black);
+  position: relative;
+  left: 25px;
+  bottom: 10px;
+  font-weight: bolder;
+}
+
+.carro_icon {
+  width: 30px;
+  height: auto;
+}
+
+.btn-primary {
+  --bs-btn-bg: #d0006e !important;
+  --bs-btn-border-color: #d0006e !important;
+  --bs-btn-hover-bg: #d0006e !important;
+  --bs-btn-hover-border-color: #f1a0cb !important;
+  --bs-btn-active-bg: #f1a0cb !important;
+  --bs-btn-active-border-color: #d0006e !important;
+  --bs-btn-disabled-bg: #d0006e !important;
+  --bs-btn-disabled-border-color: #d0006e !important;
+}
+
+.carro_1ra {
+  font-family: "Jost", sans-serif;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: auto;
+  column-gap: 20px;
+  max-width: 100%;
+  height: 150px;
+}
+
+.carro-1ra_img {
+  align-self: center;
+}
+
+.img-carro {
+  max-width: auto;
+  max-height: 100px;
+}
+
+.carro-1ra_product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+
+.carro-1ra_product__title {
+  font-family: "Jost", sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+  margin: 0px !important;
+  letter-spacing: 1.5px;
+  text-align: start;
+}
+
+.carro-1ra_product__price {
+  font-size: 15px;
+}
+
+.carro-1ra_counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.boton_counter {
+  font-family: "Jost", sans-serif;
+  color: white;
+  border: 2px #d0006f9f solid;
+  background-color: rgba(17, 25, 40, 0.25);
+  width: 40px;
+  height: auto;
+  margin: 0px 15px 0px 0px;
+  font-size: 15px;
+}
+
+.counter {
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.carro-1ra_subtotal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.boton-counter_subtotal {
+  font-family: "Jost", sans-serif;
+  color: white;
+  border: 2px #d0006f9f solid;
+  border-radius: 360px;
+  background-color: rgba(17, 25, 40, 0.25);
+  width: 50px;
+  height: auto;
+}
+
+.boton-counter_subtotal:hover {
+  background-color: #d0006f9f;
+}
+
+.carro-1ra_subtotal span {
+  letter-spacing: 1px;
+}
+
+.img-tachito {
+  height: 30px;
+  width: auto;
+}
+
+hr {
+  margin: 30px 0px;
+  border-top: 2.5px solid #d0006e !important;
+}
+
+/* Responsive para tablet */
+
+@media only screen and (max-width: 825px) {
+  .offcanvas {
+    --bs-offcanvas-width: 100% !important;
+  }
+
+  .numerito {
     background-color: white;
     color: #d0006e;
-    padding: .15rem .25rem;
+    padding: 0.15rem 0.25rem;
     border-radius: 15px;
     font-family: "Jost", sans-serif;
     filter: drop-shadow(2px 2px 4px black);
@@ -28,94 +161,70 @@
     left: 25px;
     bottom: 10px;
     font-weight: bolder;
+  }
 }
 
-.carro_icon {
-    width: 30px;
-    height: auto;
-}
+/* Resposive para celular */
 
-.btn-primary {
-    --bs-btn-bg: #d0006e !important;
-    --bs-btn-border-color: #d0006e !important;
-    --bs-btn-hover-bg: #d0006e !important;
-    --bs-btn-hover-border-color: #f1a0cb !important;
-    --bs-btn-active-bg: #f1a0cb !important;
-    --bs-btn-active-border-color: #d0006e !important;
-    --bs-btn-disabled-bg: #d0006e !important;
-    --bs-btn-disabled-border-color: #d0006e !important;
-}
+@media only screen and (max-width: 510px) {
+  .offcanvas {
+    --bs-offcanvas-width: 100% !important;
+  }
 
-.carro_1ra {
+  .numerito {
+    background-color: white;
+    color: #d0006e;
+    padding: 0.15rem 0.25rem;
+    border-radius: 15px;
     font-family: "Jost", sans-serif;
-    display: grid;
-    grid-template-columns: 30% 30% 30%;
-    grid-template-rows: auto;
-    column-gap: 20px;
-    max-width: 100%;
-    height: 150px;
-}
+    filter: drop-shadow(2px 2px 4px black);
+    position: relative;
+    left: 25px;
+    bottom: 10px;
+    font-weight: bolder;
+  }
 
-.carro-1ra_img {
-    align-self: center;
-}
+  .carro-1ra_product {
+    padding-left: 0px;
+  }
 
-.img-carro {
-    max-width: auto;
-    max-height: 100px;
-}
-
-.carro-1ra_product {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding-left: 20px;
-}
-
-.carro-1ra_product__title {
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
+  .carro-1ra_product__title {
+    font-size: 15px;
     font-weight: bolder;
     margin: 0px !important;
     letter-spacing: 1.5px;
-    text-align: start;
-}
+  }
 
-.carro-1ra_product__price {
+  .carro-1ra_product__price {
     font-size: 15px;
-}
+  }
 
-.carro-1ra_counter {
+  .carro-1ra_subtotal {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
+    flex-direction: column;
+    align-items: center;
+  }
 
-.boton_counter {
+  .boton-counter_subtotal {
     font-family: "Jost", sans-serif;
     color: white;
-    border: 2px #d0006f9f solid;
-    background-color: rgba(17, 25, 40, 0.25);
-    width: 40px;
+    border: none;
+    width: 30px;
     height: auto;
-    margin: 0px 15px 0px 0px;
+  }
+
+  .carro-1ra_subtotal span {
+    letter-spacing: 1px;
     font-size: 15px;
-}
+    margin-bottom: 5px;
+  }
 
-.counter {
-    margin-right: 15px;
-    font-size: 15px;
-}
+  .img-tachito {
+    height: 30px;
+    width: auto;
+  }
 
-.carro-1ra_subtotal {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.boton-counter_subtotal {
+  .boton-counter_subtotal {
     font-family: "Jost", sans-serif;
     color: white;
     border: 2px #d0006f9f solid;
@@ -123,118 +232,9 @@
     background-color: rgba(17, 25, 40, 0.25);
     width: 50px;
     height: auto;
-}
+  }
 
-.boton-counter_subtotal:hover {
+  .boton-counter_subtotal:hover {
     background-color: #d0006f9f;
-}
-
-.carro-1ra_subtotal span {
-    letter-spacing: 1px}
-
-.img-tachito {
-    height: 30px;
-    width: auto;
-}
-
-hr {
-    margin: 30px 0px;
-    border-top: 2.5px solid #d0006e !important;
-}
-
-
-/* Responsive para tablet */
-
-@media only screen and (max-width: 825px) {
-    .offcanvas {
-        --bs-offcanvas-width: 100% !important;
-    }
-
-    .numerito {
-        background-color: white;
-        color: #d0006e;
-        padding: .15rem .25rem;
-        border-radius: 15px;
-        font-family: "Jost", sans-serif;
-        filter: drop-shadow(2px 2px 4px black);
-        position: relative;
-        left: 25px;
-        bottom: 10px;
-        font-weight: bolder;
-    }
-}
-
-/* Resposive para celular */
-
-@media only screen and (max-width: 510px) {
-    .offcanvas {
-        --bs-offcanvas-width: 100% !important;
-    }
-
-    .numerito {
-        background-color: white;
-        color: #d0006e;
-        padding: .15rem .25rem;
-        border-radius: 15px;
-        font-family: "Jost", sans-serif;
-        filter: drop-shadow(2px 2px 4px black);
-        position: relative;
-        left: 25px;
-        bottom: 10px;
-        font-weight: bolder;
-    }
-
-    .carro-1ra_product {
-        padding-left: 0px;
-    }
-
-    .carro-1ra_product__title {
-        font-size: 15px;
-        font-weight: bolder;
-        margin: 0px !important;
-        letter-spacing: 1.5px;
-    }
-    
-    .carro-1ra_product__price {
-        font-size: 15px;
-    }
-
-    .carro-1ra_subtotal {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .boton-counter_subtotal {
-        font-family: "Jost", sans-serif;
-        color: white;
-        border: none;
-        width: 30px;
-        height: auto;
-    }
-    
-    .carro-1ra_subtotal span {
-        letter-spacing: 1px;
-        font-size: 15px;
-        margin-bottom: 5px;
-    }
-    
-    .img-tachito {
-        height: 30px;
-        width: auto;
-    }
-
-    .boton-counter_subtotal {
-        font-family: "Jost", sans-serif;
-        color: white;
-        border: 2px #d0006f9f solid;
-        border-radius: 360px;
-        background-color: rgba(17, 25, 40, 0.25);
-        width: 50px;
-        height: auto;
-    }
-    
-    .boton-counter_subtotal:hover {
-        background-color: #d0006f9f;
-    }
+  }
 }

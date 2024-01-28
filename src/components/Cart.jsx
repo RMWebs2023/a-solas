@@ -26,13 +26,41 @@ const Cart = ({
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  // promoción
+  const [promo, setPromo] = useState("");
+  const [promoValidated, setPromoValidated] = useState("");
+  const [questionCode, setQuestionCode] = useState("");
+  const [error, setError] = useState("");
+
+  const promocode = (e) => {
+    e.preventDefault();
+    setPromo(e.target.value);
+  };
+
+  const percent = total * 0.2;
+
+  const handlePromo = (e) => {
+    e.preventDefault();
+    setQuestionCode(e);
+  };
+
+  const validationPromo = (e) => {
+    e.preventDefault();
+    if (promo === "SANVALENTIN") {
+      setPromoValidated(promo);
+    } else {
+      setError("Código inválido");
+    }
+    console.log(promoValidated);
+  };
+
   // función para incrementar la cantidad del producto
   const addQuantity = (product) => {
     const productFilter = allProducts.find((item) => item._id === product._id);
     if (productFilter && productFilter.quantity > productFilter.quanty) {
       setAllProducts(
         allProducts.map((item) =>
-          item._id === product._id 
+          item._id === product._id
             ? {
                 ...product,
                 quanty: productFilter.quanty + 1,
@@ -92,6 +120,7 @@ const Cart = ({
   // let cart = localStorage.getItem("cart");
   // cart = JSON.parse(cart);
 
+  // configuración de MercadoPago
   const [preferenceId, setPreferenceId] = useState("");
 
   let cart = localStorage.getItem("cart");
@@ -183,11 +212,34 @@ const Cart = ({
                 </div>
               ))
             ) : (
-              <p>El carrito está vacío</p>
+              <>
+                <p>El carrito está vacío</p>
+              </>
             )}
             <div className="carro-2da-parte">
+              {questionCode ? (
+                <>
+                  <input
+                    placeholder="Código promocional"
+                    onChange={(e) => promocode(e)}
+                  ></input>
+                  <button onClick={(e) => validationPromo(e)}>Validar</button>
+                  {error ? <div>{error}</div> : ""}
+                </>
+              ) : (
+                <a onClick={(e) => handlePromo(e)}>
+                  ¿Tienes código promocional?
+                </a>
+              )}
               <div>Total de productos: {countProducts}</div>
-              <div>${total}</div>
+              {promoValidated === "SANVALENTIN" ? (
+                <>
+                  <div>-${percent}</div>
+                  <div>${total - percent}</div>
+                </>
+              ) : (
+                <div>${total}</div>
+              )}
               {/* <button
                 className="boton"
                 disabled={cart.length === 0}

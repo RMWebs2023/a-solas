@@ -19,6 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mercadopago/sdk-react": "^0.0.13",
+    "@sweetalert2/theme-dark": "^5.0.16",
     "@vitejs/plugin-react": "^4.0.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
