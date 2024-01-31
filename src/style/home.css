@@ -36,6 +36,71 @@ body {
   background-color: rgba(17, 25, 40, 0.25);
 }
 
+.swal2-popup {
+  background-color: rgba(17, 25, 40);
+}
+
+.swal2-image {
+  border-radius: 90px;
+}
+
+.swal2-title {
+  color: white;
+}
+
+.swal2-html-container {
+  color: pink !important;
+}
+
+.swal2-confirm {
+  align-items: center !important;
+  appearance: none !important;
+  background-color: transparent !important;
+  border-radius: 4px !important;
+  border-width: 2px !important;
+  box-shadow: rgba(208, 0, 110, 0.818) 0 1px 2px,rgba(208, 0, 110, 0.818) 0 1px 2px ,#d0006e 0  0 inset !important;
+  box-sizing: border-box !important;
+  color: white !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  font-family: "Jost", sans-serif !important;
+  height: 40px !important;
+  justify-content: center !important;
+  line-height: 2px !important;
+  list-style: none !important;
+  overflow: hidden !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  position: relative !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  transition: box-shadow .15s,transform .15s !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+  white-space: nowrap !important;
+  will-change: box-shadow,transform !important;
+  font-size: 18px !important;
+  border-color:#d0006e !important;
+}
+
+.swal2-confirm:focus {
+  box-shadow: #d0006e 0 0 0 1.5px inset, rgba(208, 0, 110, 0.818), 0 1px 2px, rgba(208, 0, 110, 0.818), 0 1px 2px -3px, #d0006e 0 -3px 0 inset !important;
+}
+
+.swal2-confirm:hover {
+  box-shadow: rgba(208, 0, 110, 0.818) 0 2px 4px, rgba(208, 0, 110, 0.818) 0 1px 2px -1px, #d0006e 0 -1px 0 inset !important;
+  transform: translateY(-2px) !important;
+  background-color: #d0006f9f !important;
+  color: white !important;
+  font-weight: bolder !important;
+}
+
+.swal2-confirm:active {
+  box-shadow: #d0006e 0 1px 2px inset !important;
+  transform: translateY(2px) !important;
+}
+
 /* Responsive para tablet */
 
 @media only screen and (max-width: 826px) {
