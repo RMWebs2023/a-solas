@@ -223,11 +223,11 @@ const Cart = ({
                     placeholder="Código promocional"
                     onChange={(e) => promocode(e)}
                   ></input>
-                  <button onClick={(e) => validationPromo(e)}>Validar</button>
+                  <button className="boton" onClick={(e) => validationPromo(e)}>Validar</button>
                   {error ? <div>{error}</div> : ""}
                 </>
               ) : (
-                <a onClick={(e) => handlePromo(e)}>
+                <a onClick={(e) => handlePromo(e)} className="hiper">
                   ¿Tienes código promocional?
                 </a>
               )}
@@ -250,7 +250,7 @@ const Cart = ({
               {preferenceId ? (
                 <Wallet initialization={{ preferenceId }} />
               ) : (
-                <Spinner animation="border" role="status">
+                <Spinner animation="border" role="status" className="loader">
                   <span className="visually-hidden">Loading...</span>
                 </Spinner>
               )}

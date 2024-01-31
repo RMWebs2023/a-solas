@@ -143,6 +143,55 @@ hr {
   border-top: 2.5px solid #d0006e !important;
 }
 
+.hiper {
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.hiper:hover {
+  color: #d0006e !important;
+}
+
+.loader {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  position: relative !important;
+  animation: rotate 1s linear infinite !important;
+  position: relative;
+  left: 45%;
+  top: 5px;
+}
+.loader::before , .loader::after {
+  content: "" !important;
+  box-sizing: border-box !important;
+  position: absolute !important;
+  inset: 0px !important;
+  border-radius: 50% !important;
+  border: 5px solid #FFF !important;
+  animation: prixClipFix 2s linear infinite !important;
+}
+.loader::after{
+  border-color: #d0006e !important;
+  animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse !important;
+  inset: 6px !important;
+}
+
+@keyframes rotate {
+  0%   {transform: rotate(0deg)}
+  100%   {transform: rotate(360deg)}
+}
+
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}
+
 /* Responsive para tablet */
 
 @media only screen and (max-width: 825px) {
