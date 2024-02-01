@@ -220,6 +220,7 @@ const Cart = ({
               {questionCode ? (
                 <>
                   <input
+                  className="inputPromo"
                     placeholder="Código promocional"
                     onChange={(e) => promocode(e)}
                   ></input>
