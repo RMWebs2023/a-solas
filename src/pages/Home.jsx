@@ -32,7 +32,7 @@ const Home = () => {
       imageUrl: logo_blanco,
       imageHeight: 150,
       title: "SAN VALENTÍN",
-      text: 'Ingresa el código "SANVALENTIN" antes de terminar tu compra y obtené un 20% OFF',
+      text: 'Ingresa el código "SANVALENTIN" antes de terminar tu compra y obtené un 20% OFF - Promocion solo valida para pagos en efectivo o transferencia bancaria',
       showConfirmButton: true,
     });
   }, []);
