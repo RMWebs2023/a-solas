@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import carro from "../imagenes/carro.png";
 import tachito from "../imagenes/tachito_blanco.png";
-import Spinner from "react-bootstrap/Spinner";
-import axios from "axios";
 import "../style/cart.css";
-
-initMercadoPago("APP_USR-3c275743-05fd-4300-af82-fdb01da26121");
-// initMercadoPago("TEST-c642f671-50cd-4061-9a9d-629c0cf079b4");
 
 const Cart = ({
   allProducts,
@@ -20,7 +14,10 @@ const Cart = ({
   countProducts,
   setCountProducts,
 }) => {
-  // const navigate = useNavigate();
+  let cart = localStorage.getItem("cart");
+  cart = JSON.parse(cart);
+
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -37,7 +34,7 @@ const Cart = ({
     setPromo(e.target.value);
   };
 
-  const percent = total * 0.2;
+  let percent = total * 0.2;
 
   const handlePromo = (e) => {
     e.preventDefault();
@@ -101,6 +98,9 @@ const Cart = ({
       setTotal(total - product.price * product.quanty);
       setCountProducts(countProducts - product.quanty);
       setAllProducts(result);
+      setPromoValidated("");
+      setError("");
+      setQuestionCode("");
       const cart = allProducts;
       localStorage.setItem("cart", JSON.stringify(cart));
     }
@@ -113,44 +113,18 @@ const Cart = ({
     setTotal(total - product.price * product.quanty);
     setCountProducts(countProducts - product.quanty);
     setAllProducts(results);
+    setPromoValidated("");
+    setError("");
+    setQuestionCode("");
     const cart = allProducts;
     localStorage.setItem("cart", JSON.stringify(cart));
-  };
-
-  // let cart = localStorage.getItem("cart");
-  // cart = JSON.parse(cart);
-
-  // configuración de MercadoPago
-  const [preferenceId, setPreferenceId] = useState("");
-
-  let cart = localStorage.getItem("cart");
-  cart = JSON.parse(cart);
-
-  // función que crea el ID que recibe MercadoPago
-  const createPreference = async () => {
-    let mappingTitle = cart.map((p) => `${p.name} x${p.quanty}`);
-    let products = mappingTitle.join(", ");
-    try {
-      const response = await axios.post("/create_preference", {
-        description: products,
-        price: total,
-        quantity: countProducts,
-      });
-      console.log(response.data.id);
-      setPreferenceId(response.data.id);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
     <>
       <Button
         variant="primary"
-        onClick={() => {
-          createPreference();
-          handleShow();
-        }}
+        onClick={() => handleShow()}
         className="cartButton"
       >
         <img src={carro} alt="" className="carro_icon" />
@@ -220,11 +194,13 @@ const Cart = ({
               {questionCode ? (
                 <>
                   <input
-                  className="inputPromo"
+                    className="inputPromo"
                     placeholder="Código promocional"
                     onChange={(e) => promocode(e)}
                   ></input>
-                  <button className="boton" onClick={(e) => validationPromo(e)}>Validar</button>
+                  <button className="boton" onClick={(e) => validationPromo(e)}>
+                    Validar
+                  </button>
                   {error ? <div>{error}</div> : ""}
                 </>
               ) : (
@@ -241,20 +217,13 @@ const Cart = ({
               ) : (
                 <div>${total}</div>
               )}
-              {/* <button
+              <button
                 className="boton"
                 disabled={cart.length === 0}
                 onClick={() => navigate("/buyer")}
               >
                 Finalizar compra
-              </button> */}
-              {preferenceId ? (
-                <Wallet initialization={{ preferenceId }} />
-              ) : (
-                <Spinner animation="border" role="status" className="loader">
-                  <span className="visually-hidden">Loading...</span>
-                </Spinner>
-              )}
+              </button>
             </div>
           </div>
         </Offcanvas.Body>

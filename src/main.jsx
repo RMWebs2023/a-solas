@@ -8,7 +8,7 @@ import Admin from "./pages/Admin";
 import Home from "./pages/Home.jsx";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login.jsx";
-// import Buyer from "./pages/Buyer.jsx";
+import Buyer from "./pages/Buyer.jsx";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://a-solas.onrender.com/";
@@ -31,10 +31,10 @@ const router = createHashRouter([
     path: "/login",
     element: <Login />,
   },
-  // {
-  //   path: "/buyer",
-  //   element: <Buyer />,
-  // },
+  {
+    path: "/buyer",
+    element: <Buyer />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

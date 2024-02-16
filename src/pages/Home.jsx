@@ -8,8 +8,8 @@ import Filter from "../components/Filter";
 import Comercial from "../components/Comercial";
 import Footer from "../components/Footer";
 import Paginated from "../components/Paginated";
-import logo_blanco from "../imagenes/logo-blanco.png"
-import Swal from "sweetalert2";
+// import logo_blanco from "../imagenes/logo-blanco.png";
+// import Swal from "sweetalert2";
 import "../style/header.css";
 import "../style/home.css";
 
@@ -27,14 +27,14 @@ const Home = () => {
   // efecto que llama a los productos al iniciar la página
   useEffect(() => {
     dispatch(getProducts());
-    // alert de promoción
-    Swal.fire({
-      imageUrl: logo_blanco,
-      imageHeight: 150,
-      title: "SAN VALENTÍN",
-      text: 'Ingresa el código "SANVALENTIN" antes de terminar tu compra y obtené un 20% OFF - Promocion solo valida para pagos en efectivo o transferencia bancaria',
-      showConfirmButton: true,
-    });
+    // // alert de promoción
+    // Swal.fire({
+    //   imageUrl: logo_blanco,
+    //   imageHeight: 150,
+    //   title: "SAN VALENTÍN",
+    //   text: 'Ingresa el código "SANVALENTIN" antes de terminar tu compra y obtené un 20% OFF - Promocion solo valida para pagos en efectivo o transferencia bancaria',
+    //   showConfirmButton: true,
+    // });
   }, []);
 
   // estados para filtrado y paginado
@@ -50,6 +50,8 @@ const Home = () => {
   const [countProducts, setCountProducts] = useState(0);
   const [count, setCount] = useState([]);
   localStorage.setItem("cart", JSON.stringify(allProducts));
+  localStorage.setItem("total", JSON.stringify(total));
+  localStorage.setItem("countProducts", JSON.stringify(countProducts));
 
   // función que filtra los productos dependiendo su categoría
   const filterCategory = (category) => {

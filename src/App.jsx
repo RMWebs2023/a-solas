@@ -1,6 +1,6 @@
 import "./App.css";
 import Admin from "./pages/Admin";
-// import Buyer from "./pages/Buyer";
+import Buyer from "./pages/Buyer";
 import Home from "./pages/Home.jsx";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
-        {/* <Route path="/buyer" element={<Buyer />} /> */}
+        <Route path="/buyer" element={<Buyer />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
       </Routes>
