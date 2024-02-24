@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
@@ -10,7 +10,6 @@ initMercadoPago("APP_USR-3c275743-05fd-4300-af82-fdb01da26121");
 // initMercadoPago("TEST-c642f671-50cd-4061-9a9d-629c0cf079b4");
 
 const Buyer = () => {
-  const navigate = useNavigate();
   const [steps, setSteps] = useState("firstStep");
   const [preferenceId, setPreferenceId] = useState("");
 
